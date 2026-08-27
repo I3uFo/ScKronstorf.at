@@ -1,0 +1,296 @@
+:root {
+  --bg: #ffffff;
+  --text: #1c231d;
+  --muted: #5c655d;
+  --accent: #1f7a4d;
+  --accent-dark: #145c39;
+  --accent-soft: #e6f2ec;
+  --border: #e3e6e1;
+  --danger: #b3261e;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-brand {
+  color: var(--text);
+}
+
+.site-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.site-name {
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: 0.95rem;
+}
+
+.nav-link-custom {
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-link-custom:hover {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.nav-link-custom.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--accent-dark);
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+/* ---------- Voting ---------- */
+.voting-row {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+}
+
+.voting-row .startnummer {
+  font-weight: 700;
+  color: var(--muted);
+  min-width: 2.2rem;
+  text-align: center;
+}
+
+.voting-row .titel {
+  flex: 1;
+}
+
+.voting-row .titel .interpret-name {
+  font-weight: 600;
+}
+
+.voting-row .titel .songtitel {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.voting-row select {
+  min-width: 6rem;
+}
+
+.voting-row.ist-belegt {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---------- Danksagungs-Overlay ---------- */
+.danke-screen {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.sponsor-ring {
+  position: relative;
+  width: min(88vw, 520px);
+  aspect-ratio: 1;
+  margin: 2rem auto 0;
+}
+
+.sponsor-ring-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+}
+
+.sponsor-ring-item {
+  --radius: min(42vw, 230px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin: -30px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(calc(360deg / var(--sponsor-count) * var(--i))) translate(var(--radius))
+    rotate(calc(-360deg / var(--sponsor-count) * var(--i)));
+}
+
+.sponsor-ring-item img {
+  max-width: 76%;
+  max-height: 76%;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sponsor-ring-item {
+    transition: transform 0.4s ease;
+  }
+}
+
+/* ---------- Beamer ---------- */
+body.beamer-body {
+  background: #0d1310;
+  color: #f3f6f2;
+}
+
+.beamer-balken-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.beamer-balken-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.beamer-balken-platz {
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.beamer-balken-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 2.4rem;
+  position: relative;
+}
+
+.beamer-balken-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #2fae76);
+  width: 0%;
+  transition: width 0.6s ease;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #06170f;
+}
+
+.beamer-balken-fill.enthuellt {
+  background: linear-gradient(90deg, #d8a13a, #f0c766);
+}
+
+.beamer-balken-summe {
+  font-variant-numeric: tabular-nums;
+  min-width: 3rem;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beamer-balken-fill {
+    transition: none;
+  }
+}
+
+/* ---------- Admin ---------- */
+.admin-shell {
+  background: #f6f7f5;
+  min-height: 100vh;
+}
+
+.admin-nav {
+  background: #182019;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .admin-nav {
+    width: 220px;
+    min-height: 100vh;
+  }
+}
+
+.admin-nav a {
+  color: #d8ded8;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .admin-nav a {
+    display: block;
+    text-align: left;
+    flex: none;
+  }
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.admin-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
