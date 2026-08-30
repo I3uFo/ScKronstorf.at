@@ -23,7 +23,6 @@ function adminNavKlasse(string $eigene, string $aktiv): string
     <div class="text-white fw-bold mb-0 mb-md-3 w-100">SC Kronstorf Admin</div>
     <a href="dashboard.php" class="<?= adminNavKlasse('dashboard', $aktivAdminNav) ?>">Dashboard</a>
     <a href="voting_versionen.php" class="<?= adminNavKlasse('voting', $aktivAdminNav) ?>">Voting-Versionen</a>
-    <a href="interpreten.php" class="<?= adminNavKlasse('interpreten', $aktivAdminNav) ?>">Interpreten</a>
     <a href="sponsoren.php" class="<?= adminNavKlasse('sponsoren', $aktivAdminNav) ?>">Sponsoren</a>
     <a href="texte.php" class="<?= adminNavKlasse('texte', $aktivAdminNav) ?>">Texte</a>
     <a href="beamer_control.php" class="<?= adminNavKlasse('beamer', $aktivAdminNav) ?>">Beamer-Steuerung</a>

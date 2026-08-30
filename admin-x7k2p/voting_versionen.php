@@ -44,6 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $update = $pdo->prepare("UPDATE voting_versionen SET status = 'geschlossen' WHERE id = ? AND status = 'offen'");
             $update->execute([$id]);
             $erfolg = 'Voting wurde geschlossen.';
+        } elseif ($aktion === 'loeschen') {
+            $id = (int)($_POST['id'] ?? 0);
+            $delete = $pdo->prepare("DELETE FROM voting_versionen WHERE id = ? AND status != 'offen'");
+            $delete->execute([$id]);
+            if ($delete->rowCount() > 0) {
+                $erfolg = 'Voting-Version wurde inklusive aller zugehörigen Interpreten und Stimmen gelöscht.';
+            } else {
+                $fehler = 'Ein geöffnetes Voting kann nicht gelöscht werden. Bitte zuerst schließen.';
+            }
         }
     }
 }
@@ -109,6 +118,15 @@ require __DIR__ . '/includes/admin_header.php';
               </form>
             <?php else: ?>
               <a href="beamer_control.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-dark">Beamer steuern</a>
+            <?php endif; ?>
+            <?php if ($v['status'] !== 'offen'): ?>
+              <form method="post" class="d-inline">
+                <?= csrfField() ?>
+                <input type="hidden" name="aktion" value="loeschen">
+                <input type="hidden" name="id" value="<?= (int)$v['id'] ?>">
+                <button type="submit" class="btn btn-sm btn-outline-danger"
+                        onclick="return confirm('Voting-Version „<?= e($v['name']) ?>“ inklusive aller Interpreten und Stimmen unwiderruflich löschen?');">Löschen</button>
+              </form>
             <?php endif; ?>
           </td>
         </tr>

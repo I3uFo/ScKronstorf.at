@@ -12,21 +12,24 @@
 
   function baueZeile(item) {
     var row = document.createElement('div');
-    row.className = 'beamer-balken-row';
+    var platzKlasse = item.platz === 1 ? ' beamer-balken-row--platz1' : item.platz === 2 ? ' beamer-balken-row--platz2' : '';
+    row.className = 'beamer-balken-row' + platzKlasse;
     row.innerHTML =
       '<div class="beamer-balken-platz">' + item.platz + '.</div>' +
+      '<div class="beamer-balken-name"></div>' +
       '<div class="beamer-balken-track"><div class="beamer-balken-fill"></div></div>' +
       '<div class="beamer-balken-summe"></div>';
     return row;
   }
 
   function aktualisiereZeile(row, item, maxSumme) {
+    var nameEl = row.querySelector('.beamer-balken-name');
     var fill = row.querySelector('.beamer-balken-fill');
     var summeEl = row.querySelector('.beamer-balken-summe');
     var breite = maxSumme > 0 ? Math.max(4, (item.summe / maxSumme) * 100) : 0;
     fill.style.width = breite + '%';
     fill.classList.toggle('enthuellt', item.enthuellt);
-    fill.textContent = item.enthuellt ? item.name : item.anonym_label;
+    nameEl.textContent = item.enthuellt ? item.name : '';
     summeEl.textContent = item.summe + ' Pkt.';
   }
 

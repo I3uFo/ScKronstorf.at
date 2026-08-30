@@ -141,7 +141,7 @@ a {
 
 .sponsor-ring {
   position: relative;
-  width: min(88vw, 520px);
+  width: min(94vw, 620px);
   aspect-ratio: 1;
   margin: 2rem auto 0;
 }
@@ -155,13 +155,13 @@ a {
 }
 
 .sponsor-ring-item {
-  --radius: min(42vw, 230px);
+  --radius: min(40vw, 260px);
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60px;
-  height: 60px;
-  margin: -30px;
+  width: 100px;
+  height: 100px;
+  margin: -50px;
   border-radius: 50%;
   background: #fff;
   border: 1px solid var(--border);
@@ -199,7 +199,7 @@ body.beamer-body {
 
 .beamer-balken-row {
   display: grid;
-  grid-template-columns: 3rem 1fr auto;
+  grid-template-columns: 3rem 13rem 1fr 5rem;
   align-items: center;
   gap: 12px;
 }
@@ -208,6 +208,13 @@ body.beamer-body {
   font-weight: 700;
   text-align: center;
   opacity: 0.7;
+}
+
+.beamer-balken-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .beamer-balken-track {
@@ -220,31 +227,33 @@ body.beamer-body {
 
 .beamer-balken-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), #2fae76);
   width: 0%;
   transition: width 0.6s ease;
-  display: flex;
-  align-items: center;
-  padding-left: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-  color: #06170f;
-}
-
-.beamer-balken-fill.enthuellt {
-  background: linear-gradient(90deg, #d8a13a, #f0c766);
-}
-
-.beamer-balken-summe {
-  font-variant-numeric: tabular-nums;
-  min-width: 3rem;
-  text-align: right;
+  background: linear-gradient(90deg, #3a3f3c, #5c635f);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .beamer-balken-fill {
     transition: none;
   }
+}
+
+.beamer-balken-fill.enthuellt {
+  background: linear-gradient(90deg, var(--danger), #e2564a);
+}
+
+.beamer-balken-summe {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.beamer-balken-row--platz1 .beamer-balken-name {
+  font-size: 1.5em;
+  color: #f0c766;
+}
+
+.beamer-balken-row--platz2 .beamer-balken-name {
+  font-size: 1.2em;
 }
 
 /* ---------- Admin ---------- */

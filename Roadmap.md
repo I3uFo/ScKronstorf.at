@@ -23,6 +23,14 @@ liefert – falls nicht (z. B. bei Nginx-Hosting), muss der Hosting-Anbieter kon
 Texte (Impressum-Überschriften, Button-Beschriftungen) sind aktuell fix im Code hinterlegt – falls
 gewünscht, kann das auf Wunsch erweitert werden.
 
+**Nachträgliche Verfeinerungen (Stand 30.08.2026):**
+- Navigation: „Interpreten" ist kein eigener Menüpunkt mehr, sondern nur noch über die jeweilige Voting-Version auf der Seite „Voting-Versionen" erreichbar.
+- Beamer-Enthüllung: Interpreten mit gleicher Punktezahl werden immer gemeinsam enthüllt; Platz 1 wird beim Enthüllen immer gemeinsam mit Platz 2 aufgedeckt.
+- Beamer-Darstellung: Balken zeigen keinen Text mehr (Interpreten-Name steht daneben statt darin), anonymisierte Balken sind dunkelgrau, enthüllte rot; der Name von Platz 1 erscheint in Gold und deutlich größer, Platz 2 etwas größer als der Rest; alle Balken-Tracks sind unabhängig vom Namen einheitlich lang.
+- Voting-Versionen: neue „Löschen"-Funktion inkl. kaskadierendem Löschen aller zugehörigen Interpreten und Stimmen (für bereits geschlossene bzw. noch nicht geöffnete Versionen, zum Aufräumen alter Testdaten).
+- Danksagungs-Overlay: Sponsorenlogos im Sponsorenkranz vergrößert (100px statt ursprünglich 60px).
+- Projekt ist an das GitHub-Repository https://github.com/I3uFo/ScKronstorf.at angebunden; die Laufzeit-Datenbank (`db/kronstorf.sqlite`) ist bewusst über `.gitignore` ausgeschlossen, da das Repository öffentlich ist.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

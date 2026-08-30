@@ -96,3 +96,47 @@ function berechneErgebnisse(PDO $pdo, int $versionId): array
     $stmt->execute([$versionId]);
     return $stmt->fetchAll();
 }
+
+/**
+ * Liefert die gültigen Werte für beamer_freigabe_platz, in aufsteigender Reihenfolge
+ * (0 = nichts enthüllt, letzter Wert = alle enthüllt). Zwischen zwei aufeinanderfolgenden
+ * Werten liegt jeweils eine "Enthüllungsgruppe": Interpreten mit gleicher Punktezahl werden
+ * immer gemeinsam enthüllt, und Platz 1 wird immer gemeinsam mit Platz 2 enthüllt.
+ *
+ * @param array $ergebnisse Ergebnis von berechneErgebnisse() (absteigend nach Punkten sortiert)
+ * @return int[]
+ */
+function berechneEnthuellungsSchritte(array $ergebnisse): array
+{
+    $gesamt = count($ergebnisse);
+    if ($gesamt === 0) {
+        return [0];
+    }
+
+    // Gruppen (Listen von Indizes) von hinten (schwächster Platz) nach vorne (Platz 1) bilden;
+    // gleiche Punktzahl landet immer in derselben Gruppe.
+    $gruppen = [[$gesamt - 1]];
+    for ($i = $gesamt - 2; $i >= 0; $i--) {
+        if ((int)$ergebnisse[$i]['summe'] === (int)$ergebnisse[$i + 1]['summe']) {
+            $gruppen[count($gruppen) - 1][] = $i;
+        } else {
+            $gruppen[] = [$i];
+        }
+    }
+
+    // Platz 1 (Index 0) und Platz 2 (Index 1) werden immer gemeinsam enthüllt.
+    $letzterIndex = count($gruppen) - 1;
+    if ($gesamt >= 2 && $letzterIndex >= 1 && !in_array(1, $gruppen[$letzterIndex], true)) {
+        $gruppen[$letzterIndex - 1] = array_merge($gruppen[$letzterIndex - 1], $gruppen[$letzterIndex]);
+        unset($gruppen[$letzterIndex]);
+        $gruppen = array_values($gruppen);
+    }
+
+    $schritte = [0];
+    $anzahl = 0;
+    foreach ($gruppen as $gruppe) {
+        $anzahl += count($gruppe);
+        $schritte[] = $anzahl;
+    }
+    return $schritte;
+}

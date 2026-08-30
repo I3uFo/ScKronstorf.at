@@ -4,7 +4,7 @@ require __DIR__ . '/../includes/bootstrap.php';
 requireAdminLogin();
 
 $pdo = db();
-$aktivAdminNav = 'interpreten';
+$aktivAdminNav = 'voting';
 $fehler = null;
 $erfolg = null;
 

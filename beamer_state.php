@@ -29,7 +29,6 @@ foreach ($ergebnisse as $index => $row) {
     $istEnthuellt = $platzVonHinten <= $revealed;
     $ausgabe[] = [
         'platz' => $platz,
-        'anonym_label' => 'Interpret ' . chr(64 + $platz),
         'name' => $istEnthuellt ? $row['name'] : null,
         'songtitel' => $istEnthuellt ? $row['songtitel'] : null,
         'summe' => (int)$row['summe'],

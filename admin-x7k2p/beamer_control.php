@@ -17,18 +17,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $versionId > 0) {
     if (!csrfCheck()) {
         $fehler = 'Sicherheitsprüfung fehlgeschlagen.';
     } else {
-        $stmt = $pdo->prepare('SELECT COUNT(*) FROM interpreten WHERE voting_version_id = ?');
+        $schritte = berechneEnthuellungsSchritte(berechneErgebnisse($pdo, $versionId));
+        $stmt = $pdo->prepare('SELECT beamer_freigabe_platz FROM voting_versionen WHERE id = ?');
         $stmt->execute([$versionId]);
-        $gesamt = (int)$stmt->fetchColumn();
+        $aktuell = (int)$stmt->fetchColumn();
 
         $aktion = (string)($_POST['aktion'] ?? '');
+        $neu = $aktuell;
         if ($aktion === 'weiter') {
-            $pdo->prepare('UPDATE voting_versionen SET beamer_freigabe_platz = MIN(beamer_freigabe_platz + 1, ?) WHERE id = ?')
-                ->execute([$gesamt, $versionId]);
+            foreach ($schritte as $schritt) {
+                if ($schritt > $aktuell) {
+                    $neu = $schritt;
+                    break;
+                }
+            }
         } elseif ($aktion === 'zurueck') {
-            $pdo->prepare('UPDATE voting_versionen SET beamer_freigabe_platz = MAX(beamer_freigabe_platz - 1, 0) WHERE id = ?')
-                ->execute([$versionId]);
+            foreach (array_reverse($schritte) as $schritt) {
+                if ($schritt < $aktuell) {
+                    $neu = $schritt;
+                    break;
+                }
+            }
         }
+        $pdo->prepare('UPDATE voting_versionen SET beamer_freigabe_platz = ? WHERE id = ?')
+            ->execute([$neu, $versionId]);
         header('Location: beamer_control.php?v=' . $versionId);
         exit;
     }
