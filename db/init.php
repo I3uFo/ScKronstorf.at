@@ -43,18 +43,20 @@ if ((int)$stmt->fetchColumn() === 0) {
 
 // Standardtexte für alle Seiten seeden (nur falls noch nicht vorhanden).
 $standardTexte = [
-    ['start', 'titel', 'Willkommen beim SC Kronstorf Songcontest'],
+    ['start', 'titel', 'Willkommen beim SC Zauner Group Kronstorf Songcontest'],
     ['start', 'text', "Stimm jetzt für deinen Lieblingsinterpreten ab und entscheide mit,\nwer den Songcontest Kronstorf gewinnt!"],
+    ['start', 'save_the_date_titel', 'Save the Date'],
+    ['start', 'save_the_date_termin', "Samstag, 21. November 2026\nJoseph Heimel Halle Kronstorf"],
     ['voting', 'titel', 'Jetzt abstimmen'],
     ['voting', 'anleitung', 'Vergib die Plätze 1 bis 11 an deine Favoriten. Platz 1 erhält 12 Punkte, Platz 2 erhält 10 Punkte, danach absteigend bis Platz 11 mit 1 Punkt. Jeder Interpret kann nur einen Platz erhalten.'],
     ['voting', 'kein_voting_aktiv', 'Aktuell ist kein Voting geöffnet. Schau später wieder vorbei!'],
     ['voting', 'bereits_abgestimmt', 'Von diesem Gerät wurde bereits abgestimmt.'],
     ['danke', 'titel', 'Danke für deine Stimme!'],
-    ['danke', 'text', 'Deine Stimme wurde gezählt. Wir bedanken uns herzlich bei unseren Sponsoren für die Unterstützung des SC Kronstorf Songcontest.'],
+    ['danke', 'text', 'Deine Stimme wurde gezählt. Wir bedanken uns herzlich bei unseren Sponsoren für die Unterstützung des SC Zauner Group Kronstorf Songcontest.'],
     ['archiv', 'titel', 'Songcontest Archiv'],
     ['archiv', 'text', 'Hier findest du Videos vergangener Songcontest-Abende.'],
     ['impressum', 'vereinszweck', 'Förderung des Sports, insbesondere des Fußballsports, im Rahmen der Vereinstätigkeit.'],
-    ['datenschutz', 'einleitung', 'Der SC Kronstorf nimmt den Schutz personenbezogener Daten ernst und behandelt diese vertraulich entsprechend den gesetzlichen Datenschutzvorschriften.'],
+    ['datenschutz', 'einleitung', 'Der SC Zauner Group Kronstorf nimmt den Schutz personenbezogener Daten ernst und behandelt diese vertraulich entsprechend den gesetzlichen Datenschutzvorschriften.'],
 ];
 
 $insertText = $pdo->prepare(

@@ -106,7 +106,7 @@ require __DIR__ . '/includes/admin_header.php';
           <input type="hidden" name="aktion" value="weiter">
           <button type="submit" class="btn btn-success" <?= $revealed >= $gesamt ? 'disabled' : '' ?>>Nächsten Platz enthüllen »</button>
         </form>
-        <a href="../beamer.php?v=<?= $versionId ?>" target="_blank" class="btn btn-outline-dark">Beamer-Ansicht öffnen</a>
+        <a href="../beamer.php?v=<?= $versionId ?>" target="_blank" class="btn btn-outline-theme">Beamer-Ansicht öffnen</a>
       </div>
     </div>
 

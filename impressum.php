@@ -10,7 +10,7 @@ require __DIR__ . '/includes/header.php';
 
   <h2 class="h5 mt-4">Medieninhaber und Herausgeber</h2>
   <p>
-    SC Kronstorf<br>
+    SC Zauner Group Kronstorf<br>
     Hargelsbergerstr. 4<br>
     4484 Kronstorf<br>
     Österreich

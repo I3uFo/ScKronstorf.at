@@ -1,18 +1,65 @@
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/archivo-variable-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
-  --bg: #ffffff;
-  --text: #1c231d;
-  --muted: #5c655d;
-  --accent: #1f7a4d;
-  --accent-dark: #145c39;
-  --accent-soft: #e6f2ec;
-  --border: #e3e6e1;
+  --bg: #f3f2f2;
+  --surface: #ffffff;
+  --text: #201e1d;
+  --muted: #7d7979;
+  --accent: #ec3013;
+  --accent-dark: #ae1800;
+  --accent-soft: #fff2ef;
+  --border: #d7d3d3;
   --danger: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme="light"]) {
+    --bg: #17140f;
+    --surface: #221f1b;
+    --text: #f2efec;
+    --muted: #a39d99;
+    --accent: #ff5b3d;
+    --accent-dark: #ff8468;
+    --accent-soft: #3a1c14;
+    --border: #3a3632;
+    --danger: #ff6259;
+  }
+}
+
+[data-bs-theme="dark"] {
+  --bg: #17140f;
+  --surface: #221f1b;
+  --text: #f2efec;
+  --muted: #a39d99;
+  --accent: #ff5b3d;
+  --accent-dark: #ff8468;
+  --accent-soft: #3a1c14;
+  --border: #3a3632;
+  --danger: #ff6259;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-family: "Archivo", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Archivo", "Segoe UI", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.btn {
+  border-radius: 0;
 }
 
 a {
@@ -44,9 +91,10 @@ a {
 
 .nav-link-custom {
   padding: 8px 14px;
-  border-radius: 8px;
+  border-radius: 0;
   color: var(--text);
   text-decoration: none;
+  font-family: "Archivo", sans-serif;
   font-weight: 600;
 }
 
@@ -88,16 +136,61 @@ a {
   border-color: var(--accent-dark);
 }
 
+.btn-outline-theme {
+  color: var(--text);
+  border-color: var(--text);
+  background-color: transparent;
+}
+
+.btn-outline-theme:hover,
+.btn-outline-theme:focus {
+  color: var(--bg);
+  background-color: var(--text);
+  border-color: var(--text);
+}
+
+/* ---------- Save the Date ---------- */
+.save-date-card {
+  display: block;
+  width: fit-content;
+  max-width: 90%;
+  text-align: center;
+  background: var(--accent);
+  border: 3px solid var(--text);
+  padding: 1.75rem 2.5rem;
+  margin: 2rem auto;
+  box-shadow: 6px 6px 0 var(--text);
+}
+
+.save-date-kicker {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.save-date-text {
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+  white-space: pre-line;
+}
+
 /* ---------- Voting ---------- */
 .voting-row {
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 12px 16px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 14px;
-  background: #fff;
+  background: var(--surface);
 }
 
 .voting-row .startnummer {
@@ -163,7 +256,7 @@ a {
   height: 100px;
   margin: -50px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -212,14 +305,14 @@ body.beamer-body {
 
 .beamer-balken-name {
   font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.15;
 }
 
 .beamer-balken-track {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   height: 2.4rem;
   position: relative;
@@ -258,19 +351,31 @@ body.beamer-body {
 
 /* ---------- Admin ---------- */
 .admin-shell {
-  background: #f6f7f5;
+  background: var(--bg);
   min-height: 100vh;
 }
 
 .admin-nav {
   background: #182019;
   width: 100%;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .admin-nav {
     width: 220px;
+    min-width: 220px;
     min-height: 100vh;
+  }
+}
+
+.admin-content {
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .admin-nav-logout {
+    margin-top: auto;
   }
 }
 
@@ -278,9 +383,10 @@ body.beamer-body {
   color: #d8ded8;
   text-decoration: none;
   padding: 10px 16px;
-  border-radius: 8px;
+  border-radius: 0;
   flex: 1 1 auto;
   text-align: center;
+  font-family: "Archivo", sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -298,8 +404,39 @@ body.beamer-body {
 }
 
 .admin-card {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 1.25rem;
+}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle-btn .icon-moon {
+  display: none;
+}
+
+[data-bs-theme="dark"] .theme-toggle-btn .icon-sun {
+  display: none;
+}
+
+[data-bs-theme="dark"] .theme-toggle-btn .icon-moon {
+  display: block;
 }

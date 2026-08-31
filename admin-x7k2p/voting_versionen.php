@@ -117,7 +117,7 @@ require __DIR__ . '/includes/admin_header.php';
                 <button type="submit" class="btn btn-sm btn-danger">Voting schließen</button>
               </form>
             <?php else: ?>
-              <a href="beamer_control.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-dark">Beamer steuern</a>
+              <a href="beamer_control.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-theme">Beamer steuern</a>
             <?php endif; ?>
             <?php if ($v['status'] !== 'offen'): ?>
               <form method="post" class="d-inline">

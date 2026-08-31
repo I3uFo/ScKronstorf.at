@@ -1,4 +1,4 @@
-# SC Kronstorf – Songcontest-Webseite
+# SC Zauner Group Kronstorf – Songcontest-Webseite
 
 ## Umsetzungsstatus
 
@@ -31,6 +31,14 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Danksagungs-Overlay: Sponsorenlogos im Sponsorenkranz vergrößert (100px statt ursprünglich 60px).
 - Projekt ist an das GitHub-Repository https://github.com/I3uFo/ScKronstorf.at angebunden; die Laufzeit-Datenbank (`db/kronstorf.sqlite`) ist bewusst über `.gitignore` ausgeschlossen, da das Repository öffentlich ist.
 
+**Nachträgliche Verfeinerungen (Stand 31.08.2026):**
+- Vereinsname durchgängig auf „SC Zauner Group Kronstorf" aktualisiert (Titel, Header, Footer, Impressum, Datenschutz, Admin-Bereich, Standardtexte).
+- Design-System des Vereinsauftritts übernommen: Schriftart Archivo (lokal selbst gehostet, kein CDN), warme Off-White/Rot-Orange-Farbpalette über zentrale CSS-Variablen, scharfkantige Buttons/Karten statt abgerundeter Ecken.
+- Dark Mode für die gesamte Seite (öffentlich und Admin-Bereich): folgt standardmäßig der Systemeinstellung, per Umschalt-Button im Header manuell wählbar und dauerhaft gespeichert (`localStorage`); technisch über Bootstraps `data-bs-theme` umgesetzt.
+- Startseite: „Save the Date"-Ankündigung (Termin/Ort der nächsten Veranstaltung) ergänzt, über das Text-Management-System bearbeitbar, groß und zentriert direkt über dem „Jetzt abstimmen"-Button.
+- Beamer-Ansicht: Interpreten-Name wird bei Bedarf zweizeilig umgebrochen statt mit „…" abgeschnitten.
+- Diverse Dark-Mode-Korrekturen: Admin-Menübreite bleibt jetzt auf allen Unterseiten (z. B. Sponsoren) konstant; zuvor im Dunkelmodus unsichtbare Buttons „Beamer-Ansicht öffnen"/„Beamer steuern" sind jetzt theme-fähig; „Abmelden"-Link im Admin-Menü an den unteren Rand verankert.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 
@@ -57,7 +65,7 @@ Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckte
 
 | Feld | Wert |
 |---|---|
-| Verein | SC Kronstorf |
+| Verein | SC Zauner Group Kronstorf |
 | ZVR-Zahl | 168556429 |
 | Adresse | Hargelsbergerstr. 4, 4484 Kronstorf |
 | E-Mail | office@sckronstorf.at |

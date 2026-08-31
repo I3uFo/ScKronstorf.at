@@ -8,11 +8,11 @@ require __DIR__ . '/includes/header.php';
 <div class="mx-auto" style="max-width: 760px;">
   <h1 class="mb-4">Datenschutzerklärung</h1>
 
-  <p><?= e(getText($pdo, 'datenschutz', 'einleitung', 'Der SC Kronstorf nimmt den Schutz personenbezogener Daten ernst.')) ?></p>
+  <p><?= e(getText($pdo, 'datenschutz', 'einleitung', 'Der SC Zauner Group Kronstorf nimmt den Schutz personenbezogener Daten ernst.')) ?></p>
 
   <h2 class="h5 mt-4">Verantwortlicher</h2>
   <p>
-    SC Kronstorf<br>
+    SC Zauner Group Kronstorf<br>
     Hargelsbergerstr. 4, 4484 Kronstorf<br>
     E-Mail: <a href="mailto:office@sckronstorf.at">office@sckronstorf.at</a>
   </p>
