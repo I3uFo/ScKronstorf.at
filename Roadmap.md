@@ -23,15 +23,19 @@ liefert – falls nicht (z. B. bei Nginx-Hosting), muss der Hosting-Anbieter kon
 Texte (Impressum-Überschriften, Button-Beschriftungen) sind aktuell fix im Code hinterlegt – falls
 gewünscht, kann das auf Wunsch erweitert werden.
 
-**Nachträgliche Verfeinerungen (Stand 30.08.2026):**
+## Änderungshistorie
+
+**27.08.2026 – Erstumsetzung**
+- Alle Phasen A0–E4 fertiggestellt und als Erstversion ins GitHub-Repository https://github.com/I3uFo/ScKronstorf.at übertragen (Commit `c80b703`). Die Laufzeit-Datenbank (`db/kronstorf.sqlite`) ist bewusst über `.gitignore` ausgeschlossen, da das Repository öffentlich ist.
+
+**30.08.2026 – Nachträgliche Verfeinerungen (Commit `c64a1f2`)**
 - Navigation: „Interpreten" ist kein eigener Menüpunkt mehr, sondern nur noch über die jeweilige Voting-Version auf der Seite „Voting-Versionen" erreichbar.
 - Beamer-Enthüllung: Interpreten mit gleicher Punktezahl werden immer gemeinsam enthüllt; Platz 1 wird beim Enthüllen immer gemeinsam mit Platz 2 aufgedeckt.
 - Beamer-Darstellung: Balken zeigen keinen Text mehr (Interpreten-Name steht daneben statt darin), anonymisierte Balken sind dunkelgrau, enthüllte rot; der Name von Platz 1 erscheint in Gold und deutlich größer, Platz 2 etwas größer als der Rest; alle Balken-Tracks sind unabhängig vom Namen einheitlich lang.
 - Voting-Versionen: neue „Löschen"-Funktion inkl. kaskadierendem Löschen aller zugehörigen Interpreten und Stimmen (für bereits geschlossene bzw. noch nicht geöffnete Versionen, zum Aufräumen alter Testdaten).
 - Danksagungs-Overlay: Sponsorenlogos im Sponsorenkranz vergrößert (100px statt ursprünglich 60px).
-- Projekt ist an das GitHub-Repository https://github.com/I3uFo/ScKronstorf.at angebunden; die Laufzeit-Datenbank (`db/kronstorf.sqlite`) ist bewusst über `.gitignore` ausgeschlossen, da das Repository öffentlich ist.
 
-**Nachträgliche Verfeinerungen (Stand 31.08.2026):**
+**31.08.2026 – Rebranding, Design-System & Dark Mode (Commit `e91a8f1`)**
 - Vereinsname durchgängig auf „SC Zauner Group Kronstorf" aktualisiert (Titel, Header, Footer, Impressum, Datenschutz, Admin-Bereich, Standardtexte).
 - Design-System des Vereinsauftritts übernommen: Schriftart Archivo (lokal selbst gehostet, kein CDN), warme Off-White/Rot-Orange-Farbpalette über zentrale CSS-Variablen, scharfkantige Buttons/Karten statt abgerundeter Ecken.
 - Dark Mode für die gesamte Seite (öffentlich und Admin-Bereich): folgt standardmäßig der Systemeinstellung, per Umschalt-Button im Header manuell wählbar und dauerhaft gespeichert (`localStorage`); technisch über Bootstraps `data-bs-theme` umgesetzt.
