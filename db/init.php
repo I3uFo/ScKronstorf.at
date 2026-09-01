@@ -43,12 +43,13 @@ if ((int)$stmt->fetchColumn() === 0) {
 
 // Standardtexte für alle Seiten seeden (nur falls noch nicht vorhanden).
 $standardTexte = [
-    ['start', 'titel', 'Willkommen beim SC Zauner Group Kronstorf Songcontest'],
-    ['start', 'text', "Stimm jetzt für deinen Lieblingsinterpreten ab und entscheide mit,\nwer den Songcontest Kronstorf gewinnt!"],
     ['start', 'save_the_date_titel', 'Save the Date'],
     ['start', 'save_the_date_termin', "Samstag, 21. November 2026\nJoseph Heimel Halle Kronstorf"],
-    ['voting', 'titel', 'Jetzt abstimmen'],
-    ['voting', 'anleitung', 'Vergib die Plätze 1 bis 11 an deine Favoriten. Platz 1 erhält 12 Punkte, Platz 2 erhält 10 Punkte, danach absteigend bis Platz 11 mit 1 Punkt. Jeder Interpret kann nur einen Platz erhalten.'],
+    ['voting', 'titel', 'Jetzt Abstimmen'],
+    ['voting', 'titel_zeile2', 'Beim Songcontest Publikums-Voting'],
+    ['voting', 'landing_text', "Stimm jetzt für deinen Lieblingsinterpreten ab und entscheide mit,\nwer den Songcontest Kronstorf gewinnt!"],
+    ['voting', 'anleitung', 'Wähle für jeden Platz von 1 bis 11 deinen Favoriten aus.'],
+    ['voting', 'anleitung_hinweis', 'Jeder Interpret kann nur einmal ausgewählt werden.'],
     ['voting', 'kein_voting_aktiv', 'Aktuell ist kein Voting geöffnet. Schau später wieder vorbei!'],
     ['voting', 'bereits_abgestimmt', 'Von diesem Gerät wurde bereits abgestimmt.'],
     ['danke', 'titel', 'Danke für deine Stimme!'],

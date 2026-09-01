@@ -43,6 +43,16 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Beamer-Ansicht: Interpreten-Name wird bei Bedarf zweizeilig umgebrochen statt mit „…" abgeschnitten.
 - Diverse Dark-Mode-Korrekturen: Admin-Menübreite bleibt jetzt auf allen Unterseiten (z. B. Sponsoren) konstant; zuvor im Dunkelmodus unsichtbare Buttons „Beamer-Ansicht öffnen"/„Beamer steuern" sind jetzt theme-fähig; „Abmelden"-Link im Admin-Menü an den unteren Rand verankert.
 
+**01.09.2026 – Voting-Umbau, Startseiten-Feinschliff & Dark Mode vereinfacht**
+- Startseite: neue Willkommens-Headline „Willkommen beim SC [Zauner-Group-Logo] Kronstorf Songcontest" (dreizeilig), Logo freigestellt (transparentes PNG statt Hintergrundfarbe) und vergrößert dargestellt; Abstimm-Text und „Jetzt abstimmen"-Button von der Startseite entfernt.
+- Voting-Bereich in zwei Seiten aufgeteilt: `voting.php` ist jetzt eine öffentliche, im Menü verlinkte Landingpage mit Status-Anzeige („Voting-Status: Aktiv"/„Geschlossen") und Button (nur sichtbar, wenn ein Voting offen ist); die eigentliche Abstimmfunktion liegt jetzt auf der neuen, nicht verlinkten und `noindex`-geschützten Seite `abstimmen.php` (analog zum bereits bestehenden Muster der Archiv-Seite).
+- Abstimm-Logik umgedreht: Statt pro Interpret einen Platz zu vergeben, wird jetzt pro Platz (1 bis 11) ein Interpret aus einer Liste gewählt. Bereits an anderer Stelle gewählte Interpreten werden in allen übrigen Dropdowns ausgegraut und mit dem belegten Platz beschriftet; Mehrfachauswahl bleibt weiterhin serverseitig zusätzlich abgesichert.
+- „Stimme absenden"-Button ist deaktiviert, bis alle Plätze befüllt sind.
+- Punkteverteilung aus dem Anleitungstext entfernt, stattdessen eigener Info-Button (Hover am Desktop, Tap zum Ein-/Ausklappen auf Touch-Geräten) mit Platz/Punkte-Übersicht.
+- Dark Mode vereinfacht: kein manueller Umschalt-Button mehr, richtet sich ausschließlich und live nach der Systemeinstellung des Browsers.
+- Fußzeile der öffentlichen Seiten sitzt jetzt bei kurzen Seiten am unteren Rand des Browserfensters (Sticky-Footer-Layout) statt mittig auf der Seite.
+- Header: „Songcontest" aus dem Vereinsnamen oben links entfernt; Navigationspunkt „Start" in „Songcontest" umbenannt.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

@@ -62,8 +62,23 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0;
 }
 
+/* Bootstraps Abstands-Skala endet bei mt-5 (3rem); hier eine Stufe darüber. */
+.mt-10 {
+  margin-top: 6rem;
+}
+
 a {
   color: var(--accent-dark);
+}
+
+.site-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-body > main {
+  flex: 1 0 auto;
 }
 
 /* ---------- Header ---------- */
@@ -149,6 +164,32 @@ a {
   border-color: var(--text);
 }
 
+/* ---------- Willkommens-Headline ---------- */
+.welcome-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+}
+
+.welcome-headline-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+}
+
+.welcome-headline-line--logo {
+  gap: 0;
+}
+
+.welcome-headline-logo {
+  height: 2em;
+  width: auto;
+  vertical-align: middle;
+}
+
 /* ---------- Save the Date ---------- */
 .save-date-card {
   display: block;
@@ -182,6 +223,11 @@ a {
 }
 
 /* ---------- Voting ---------- */
+.voting-subtitle {
+  display: inline-block;
+  font-size: 0.55em;
+}
+
 .voting-row {
   border: 1px solid var(--border);
   border-radius: 0;
@@ -200,19 +246,6 @@ a {
   text-align: center;
 }
 
-.voting-row .titel {
-  flex: 1;
-}
-
-.voting-row .titel .interpret-name {
-  font-weight: 600;
-}
-
-.voting-row .titel .songtitel {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .voting-row select {
   min-width: 6rem;
 }
@@ -220,6 +253,66 @@ a {
 .voting-row.ist-belegt {
   border-color: var(--accent);
   background: var(--accent-soft);
+}
+
+/* ---------- Punkteverteilung-Info ---------- */
+.info-tooltip {
+  position: relative;
+}
+
+.info-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  cursor: help;
+}
+
+.info-btn:hover,
+.info-btn:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.info-tooltip-panel {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 20;
+  width: max-content;
+  max-width: 220px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1rem;
+}
+
+.info-tooltip:hover .info-tooltip-panel,
+.info-tooltip:focus-within .info-tooltip-panel,
+.info-tooltip-panel.is-open {
+  display: block;
+}
+
+.info-tooltip-panel ul {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.info-tooltip-panel li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.1rem 0;
 }
 
 /* ---------- Danksagungs-Overlay ---------- */
@@ -410,33 +503,3 @@ body.beamer-body {
   padding: 1.25rem;
 }
 
-/* ---------- Theme toggle ---------- */
-.theme-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  padding: 0;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-}
-
-.theme-toggle-btn svg {
-  width: 18px;
-  height: 18px;
-}
-
-.theme-toggle-btn .icon-moon {
-  display: none;
-}
-
-[data-bs-theme="dark"] .theme-toggle-btn .icon-sun {
-  display: none;
-}
-
-[data-bs-theme="dark"] .theme-toggle-btn .icon-moon {
-  display: block;
-}
