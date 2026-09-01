@@ -349,7 +349,9 @@ a {
   height: 100px;
   margin: -50px;
   border-radius: 50%;
-  background: var(--surface);
+  /* Bewusst immer hell, unabhängig vom Dark Mode: Sponsorenlogos sind meist für einen
+     hellen Hintergrund gestaltet und sollen darauf immer gut lesbar bleiben. */
+  background: #faf7f2;
   border: 1px solid var(--border);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -373,8 +375,10 @@ a {
 
 /* ---------- Beamer ---------- */
 body.beamer-body {
-  background: #0d1310;
-  color: #f3f6f2;
+  /* Bewusst dieselben Farbwerte wie der Dark Mode der Startseite (--bg/--text),
+     damit der Beamer unabhängig von der Systemeinstellung immer gleich aussieht. */
+  background: #17140f;
+  color: #f2efec;
 }
 
 .beamer-balken-liste {
@@ -473,21 +477,13 @@ body.beamer-body {
 }
 
 .admin-nav a {
+  display: block;
   color: #d8ded8;
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 12px 16px;
   border-radius: 0;
-  flex: 1 1 auto;
-  text-align: center;
+  text-align: left;
   font-family: "Archivo", sans-serif;
-}
-
-@media (min-width: 768px) {
-  .admin-nav a {
-    display: block;
-    text-align: left;
-    flex: none;
-  }
 }
 
 .admin-nav a:hover,
@@ -496,10 +492,20 @@ body.beamer-body {
   color: #fff;
 }
 
+.admin-nav a.admin-nav-sub {
+  padding-left: 32px;
+  font-size: 0.85em;
+  opacity: 0.85;
+}
+
 .admin-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 0;
   padding: 1.25rem;
+}
+
+.admin-actions {
+  min-width: 150px;
 }
 

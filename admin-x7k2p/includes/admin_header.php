@@ -20,12 +20,23 @@ function adminNavKlasse(string $eigene, string $aktiv): string
 </head>
 <body class="admin-shell">
 <div class="d-flex flex-column flex-md-row">
-  <nav class="admin-nav p-3 d-flex flex-row flex-md-column flex-wrap gap-1">
+  <nav class="admin-nav p-3 d-flex flex-column gap-1">
     <div class="text-white fw-bold mb-0 mb-md-3 w-100">SC Zauner Group Kronstorf Admin</div>
     <a href="dashboard.php" class="<?= adminNavKlasse('dashboard', $aktivAdminNav) ?>">Dashboard</a>
     <a href="voting_versionen.php" class="<?= adminNavKlasse('voting', $aktivAdminNav) ?>">Voting-Versionen</a>
     <a href="sponsoren.php" class="<?= adminNavKlasse('sponsoren', $aktivAdminNav) ?>">Sponsoren</a>
     <a href="texte.php" class="<?= adminNavKlasse('texte', $aktivAdminNav) ?>">Texte</a>
+    <?php if ($aktivAdminNav === 'texte'): ?>
+      <?php
+      $texteSeiten = $pdo->query('SELECT DISTINCT seite FROM seiten_texte ORDER BY seite ASC')->fetchAll(PDO::FETCH_COLUMN);
+      $aktiveTexteSeite = $aktiveTexteSeite ?? '';
+      ?>
+      <?php foreach ($texteSeiten as $texteSeite): ?>
+        <a href="texte.php?seite=<?= urlencode($texteSeite) ?>" class="admin-nav-sub<?= $texteSeite === $aktiveTexteSeite ? ' active' : '' ?>">
+          <?= e(seitenLabel($texteSeite)) ?>
+        </a>
+      <?php endforeach; ?>
+    <?php endif; ?>
     <a href="beamer_control.php" class="<?= adminNavKlasse('beamer', $aktivAdminNav) ?>">Beamer-Steuerung</a>
     <a href="logout.php" class="admin-nav-logout">Abmelden</a>
   </nav>

@@ -248,7 +248,7 @@ require __DIR__ . '/includes/admin_header.php';
         <?= csrfField() ?>
         <input type="hidden" name="v" value="<?= $versionId ?>">
         <input type="hidden" name="aktion" value="hinzufuegen">
-        <div class="col-6 col-md-2">
+        <div class="col-12 col-md-2">
           <label class="form-label">Reihenfolge</label>
           <input type="number" name="reihenfolge" class="form-control" value="<?= count($interpreten) + 1 ?>" min="1" required>
         </div>
@@ -280,7 +280,7 @@ require __DIR__ . '/includes/admin_header.php';
         <input type="hidden" name="v" value="<?= $versionId ?>">
         <input type="hidden" name="aktion" value="aktualisieren">
         <input type="hidden" name="id" value="<?= (int)$interpret['id'] ?>">
-        <div class="col-6 col-md-1">
+        <div class="col-12 col-md-1">
           <label class="form-label small text-muted">#</label>
           <input type="number" name="reihenfolge" class="form-control" value="<?= (int)$interpret['reihenfolge'] ?>" min="1" required>
         </div>

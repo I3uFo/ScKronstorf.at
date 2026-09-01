@@ -53,7 +53,7 @@ $standardTexte = [
     ['voting', 'kein_voting_aktiv', 'Aktuell ist kein Voting geöffnet. Schau später wieder vorbei!'],
     ['voting', 'bereits_abgestimmt', 'Von diesem Gerät wurde bereits abgestimmt.'],
     ['danke', 'titel', 'Danke für deine Stimme!'],
-    ['danke', 'text', 'Deine Stimme wurde gezählt. Wir bedanken uns herzlich bei unseren Sponsoren für die Unterstützung des SC Zauner Group Kronstorf Songcontest.'],
+    ['danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!"],
     ['archiv', 'titel', 'Songcontest Archiv'],
     ['archiv', 'text', 'Hier findest du Videos vergangener Songcontest-Abende.'],
     ['impressum', 'vereinszweck', 'Förderung des Sports, insbesondere des Fußballsports, im Rahmen der Vereinstätigkeit.'],

@@ -151,9 +151,9 @@ require __DIR__ . '/includes/admin_header.php';
           <div class="col-9">
             <input type="text" name="name" class="form-control mb-2" value="<?= e($sponsor['name']) ?>" required>
             <input type="url" name="link" class="form-control mb-2" value="<?= e($sponsor['link']) ?>" placeholder="https://...">
-            <div class="d-flex gap-2 align-items-center">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
               <input type="number" name="reihenfolge" class="form-control" style="max-width:6rem;" value="<?= (int)$sponsor['reihenfolge'] ?>">
-              <input type="file" name="logo" accept=".png,.jpg,.jpeg,.webp,.svg" class="form-control form-control-sm">
+              <input type="file" name="logo" accept=".png,.jpg,.jpeg,.webp,.svg" class="form-control form-control-sm" style="min-width: 10rem;">
             </div>
           </div>
           <div class="col-12 d-flex gap-2 mt-2">

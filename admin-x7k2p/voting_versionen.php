@@ -89,7 +89,7 @@ require __DIR__ . '/includes/admin_header.php';
         <th>Name</th>
         <th>Status</th>
         <th>Interpreten</th>
-        <th>Erstellt am</th>
+        <th class="d-none d-md-table-cell">Erstellt am</th>
         <th>Aktionen</th>
       </tr>
     </thead>
@@ -99,35 +99,37 @@ require __DIR__ . '/includes/admin_header.php';
           <td><?= e($v['name']) ?></td>
           <td><span class="badge text-bg-secondary"><?= e($v['status']) ?></span></td>
           <td><?= $interpretenAnzahl[$v['id']] ?></td>
-          <td><?= e($v['erstellt_am']) ?></td>
-          <td class="d-flex flex-wrap gap-2">
-            <a href="interpreten.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-secondary">Interpreten</a>
-            <?php if ($v['status'] === 'vorbereitung'): ?>
-              <form method="post" class="d-inline">
-                <?= csrfField() ?>
-                <input type="hidden" name="aktion" value="oeffnen">
-                <input type="hidden" name="id" value="<?= (int)$v['id'] ?>">
-                <button type="submit" class="btn btn-sm btn-success">Voting öffnen</button>
-              </form>
-            <?php elseif ($v['status'] === 'offen'): ?>
-              <form method="post" class="d-inline">
-                <?= csrfField() ?>
-                <input type="hidden" name="aktion" value="schliessen">
-                <input type="hidden" name="id" value="<?= (int)$v['id'] ?>">
-                <button type="submit" class="btn btn-sm btn-danger">Voting schließen</button>
-              </form>
-            <?php else: ?>
-              <a href="beamer_control.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-theme">Beamer steuern</a>
-            <?php endif; ?>
-            <?php if ($v['status'] !== 'offen'): ?>
-              <form method="post" class="d-inline">
-                <?= csrfField() ?>
-                <input type="hidden" name="aktion" value="loeschen">
-                <input type="hidden" name="id" value="<?= (int)$v['id'] ?>">
-                <button type="submit" class="btn btn-sm btn-outline-danger"
-                        onclick="return confirm('Voting-Version „<?= e($v['name']) ?>“ inklusive aller Interpreten und Stimmen unwiderruflich löschen?');">Löschen</button>
-              </form>
-            <?php endif; ?>
+          <td class="d-none d-md-table-cell"><?= e($v['erstellt_am']) ?></td>
+          <td>
+            <div class="d-grid gap-2 admin-actions">
+              <a href="interpreten.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-secondary">Interpreten</a>
+              <?php if ($v['status'] === 'vorbereitung'): ?>
+                <form method="post">
+                  <?= csrfField() ?>
+                  <input type="hidden" name="aktion" value="oeffnen">
+                  <input type="hidden" name="id" value="<?= (int)$v['id'] ?>">
+                  <button type="submit" class="btn btn-sm btn-success w-100">Voting öffnen</button>
+                </form>
+              <?php elseif ($v['status'] === 'offen'): ?>
+                <form method="post">
+                  <?= csrfField() ?>
+                  <input type="hidden" name="aktion" value="schliessen">
+                  <input type="hidden" name="id" value="<?= (int)$v['id'] ?>">
+                  <button type="submit" class="btn btn-sm btn-danger w-100">Voting schließen</button>
+                </form>
+              <?php else: ?>
+                <a href="beamer_control.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-theme">Beamer steuern</a>
+              <?php endif; ?>
+              <?php if ($v['status'] !== 'offen'): ?>
+                <form method="post">
+                  <?= csrfField() ?>
+                  <input type="hidden" name="aktion" value="loeschen">
+                  <input type="hidden" name="id" value="<?= (int)$v['id'] ?>">
+                  <button type="submit" class="btn btn-sm btn-outline-danger w-100"
+                          onclick="return confirm('Voting-Version „<?= e($v['name']) ?>“ inklusive aller Interpreten und Stimmen unwiderruflich löschen?');">Löschen</button>
+                </form>
+              <?php endif; ?>
+            </div>
           </td>
         </tr>
       <?php endforeach; ?>

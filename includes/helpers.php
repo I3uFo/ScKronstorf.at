@@ -40,6 +40,23 @@ function maxPlatzierung(): int
     return 11;
 }
 
+/**
+ * Liefert einen lesbaren Anzeigenamen für einen "seite"-Schlüssel aus seiten_texte,
+ * z. B. für die Texte-Verwaltung im Admin-Bereich.
+ */
+function seitenLabel(string $seite): string
+{
+    static $labels = [
+        'start' => 'Startseite',
+        'voting' => 'Voting',
+        'danke' => 'Danke-Seite',
+        'archiv' => 'Archiv',
+        'impressum' => 'Impressum',
+        'datenschutz' => 'Datenschutz',
+    ];
+    return $labels[$seite] ?? ucfirst($seite);
+}
+
 function getOrCreateDeviceToken(): string
 {
     $vorhanden = $_COOKIE[DEVICE_TOKEN_COOKIE] ?? '';

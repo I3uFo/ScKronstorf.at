@@ -8,6 +8,8 @@ $aktivAdminNav = 'texte';
 $erfolg = null;
 $fehler = null;
 
+$texteSeiten = $pdo->query('SELECT DISTINCT seite FROM seiten_texte ORDER BY seite ASC')->fetchAll(PDO::FETCH_COLUMN);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!csrfCheck()) {
         $fehler = 'Sicherheitsprüfung fehlgeschlagen.';
@@ -21,24 +23,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$alle = $pdo->query('SELECT * FROM seiten_texte ORDER BY seite ASC, schluessel ASC')->fetchAll();
-$gruppiert = [];
-foreach ($alle as $zeile) {
-    $gruppiert[$zeile['seite']][] = $zeile;
+$aktiveTexteSeite = (string)($_GET['seite'] ?? $_POST['seite'] ?? '');
+if (!in_array($aktiveTexteSeite, $texteSeiten, true)) {
+    $aktiveTexteSeite = $texteSeiten[0] ?? '';
+}
+
+$zeilen = [];
+if ($aktiveTexteSeite !== '') {
+    $stmt = $pdo->prepare('SELECT * FROM seiten_texte WHERE seite = ? ORDER BY schluessel ASC');
+    $stmt->execute([$aktiveTexteSeite]);
+    $zeilen = $stmt->fetchAll();
 }
 
 require __DIR__ . '/includes/admin_header.php';
 ?>
-<h1 class="h3 mb-4">Texte bearbeiten</h1>
+<h1 class="h3 mb-4">Texte bearbeiten<?= $aktiveTexteSeite !== '' ? ' – ' . e(seitenLabel($aktiveTexteSeite)) : '' ?></h1>
 
 <?php if ($fehler !== null): ?><div class="alert alert-danger"><?= e($fehler) ?></div><?php endif; ?>
 <?php if ($erfolg !== null): ?><div class="alert alert-success"><?= e($erfolg) ?></div><?php endif; ?>
 
-<form method="post">
-  <?= csrfField() ?>
-  <?php foreach ($gruppiert as $seite => $zeilen): ?>
+<?php if ($aktiveTexteSeite === ''): ?>
+  <p class="text-muted">Es sind noch keine Texte hinterlegt.</p>
+<?php else: ?>
+  <form method="post">
+    <?= csrfField() ?>
+    <input type="hidden" name="seite" value="<?= e($aktiveTexteSeite) ?>">
     <div class="admin-card mb-4">
-      <h2 class="h5 mb-3 text-capitalize"><?= e($seite) ?></h2>
       <?php foreach ($zeilen as $zeile): ?>
         <div class="mb-3">
           <label class="form-label"><code><?= e($zeile['schluessel']) ?></code></label>
@@ -46,8 +56,8 @@ require __DIR__ . '/includes/admin_header.php';
         </div>
       <?php endforeach; ?>
     </div>
-  <?php endforeach; ?>
-  <button type="submit" class="btn btn-primary">Alle Texte speichern</button>
-</form>
+    <button type="submit" class="btn btn-primary">Texte speichern</button>
+  </form>
+<?php endif; ?>
 
 <?php require __DIR__ . '/includes/admin_footer.php'; ?>

@@ -50,8 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!hinweis) {
       return;
     }
+    var vergeben = anzahlVergeben();
     hinweis.classList.remove('text-danger');
-    hinweis.textContent = anzahlVergeben() + ' von ' + maxPlatz + ' Plätzen vergeben.';
+    if (vergeben === maxPlatz) {
+      hinweis.classList.add('text-success');
+      hinweis.textContent = 'Alle ' + maxPlatz + ' Plätze vergeben – du kannst jetzt absenden.';
+    } else {
+      hinweis.classList.remove('text-success');
+      hinweis.textContent = vergeben + ' von ' + maxPlatz + ' Plätzen vergeben. Bitte fülle noch '
+        + (maxPlatz - vergeben) + ' Platz' + (maxPlatz - vergeben === 1 ? '' : 'e')
+        + ' aus, damit du absenden kannst.';
+    }
   }
 
   function aktualisiereButton() {

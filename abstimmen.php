@@ -106,11 +106,11 @@ require __DIR__ . '/includes/header.php';
     <div>
       <h1 class="display-6 fw-bold"><?= e(getText($pdo, 'danke', 'titel', 'Danke für deine Stimme!')) ?></h1>
       <?php if (empty($sponsoren)): ?>
-        <p class="lead mt-3" style="white-space: pre-line;"><?= e(getText($pdo, 'danke', 'text', 'Deine Stimme wurde gezählt.')) ?></p>
+        <p class="lead mt-3" style="white-space: pre-line;"><?= e(getText($pdo, 'danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!")) ?></p>
       <?php else: ?>
         <div class="sponsor-ring" style="--sponsor-count: <?= (int)$anzahlSponsoren ?>;">
           <div class="sponsor-ring-center">
-            <p class="lead" style="white-space: pre-line;"><?= e(getText($pdo, 'danke', 'text', 'Deine Stimme wurde gezählt.')) ?></p>
+            <p class="lead" style="white-space: pre-line;"><?= e(getText($pdo, 'danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!")) ?></p>
           </div>
           <?php foreach ($sponsoren as $i => $sponsor): ?>
             <?php $ziel = $sponsor['link'] !== '' ? $sponsor['link'] : '#'; ?>

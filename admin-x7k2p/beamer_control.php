@@ -93,14 +93,14 @@ require __DIR__ . '/includes/admin_header.php';
         <div class="fw-bold"><?= e($version['name']) ?></div>
         <div class="text-muted small"><?= $revealed ?> von <?= $gesamt ?> Plätzen enthüllt (Reihenfolge: letzter Platz zuerst)</div>
       </div>
-      <div class="d-flex gap-2">
-        <form method="post">
+      <div class="d-grid gap-2 d-md-flex">
+        <form method="post" class="d-grid">
           <?= csrfField() ?>
           <input type="hidden" name="v" value="<?= $versionId ?>">
           <input type="hidden" name="aktion" value="zurueck">
           <button type="submit" class="btn btn-outline-secondary" <?= $revealed <= 0 ? 'disabled' : '' ?>>« Enthüllung zurücknehmen</button>
         </form>
-        <form method="post">
+        <form method="post" class="d-grid">
           <?= csrfField() ?>
           <input type="hidden" name="v" value="<?= $versionId ?>">
           <input type="hidden" name="aktion" value="weiter">

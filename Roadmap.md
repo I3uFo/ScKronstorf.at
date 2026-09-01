@@ -53,6 +53,14 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Fußzeile der öffentlichen Seiten sitzt jetzt bei kurzen Seiten am unteren Rand des Browserfensters (Sticky-Footer-Layout) statt mittig auf der Seite.
 - Header: „Songcontest" aus dem Vereinsnamen oben links entfernt; Navigationspunkt „Start" in „Songcontest" umbenannt.
 
+**01.09.2026 (Teil 2) – Admin-Dashboard, Texte-Untermenüs & Mobile-Optimierung**
+- Dankestext nach dem Abstimmen überarbeitet („Ihre Stimme wurde erfolgreich gezählt…", per Sie-Form) und mit sinnvollen Zeilenumbrüchen versehen.
+- Abstimm-Seite: erklärender Hinweistext direkt über dem „Stimme absenden"-Button, der live anzeigt, wie viele Plätze noch fehlen bzw. dass jetzt abgesendet werden kann; Punkteverteilung im Info-Panel links-/rechtsbündig (Platz/Punkte) ausgerichtet.
+- Admin-Bereich „Texte": Menüpunkt klappt jetzt ein Untermenü mit allen Seiten auf, die bearbeitbare Texte haben; pro Unterseite werden nur deren eigene Texte angezeigt statt einer langen Gesamtliste.
+- Admin-Dashboard: zwei neue Karten – Anzahl abgegebener Stimmen der relevanten Voting-Version sowie ein Live-Punktestand (unanonymisiert, nur im Admin-Bereich sichtbar) mit Platz, Interpret, Songtitel und Punkten.
+- Beamer-Ansicht: Hintergrundfarbe exakt an den Dark-Mode-Hintergrund der Startseite angeglichen.
+- Gesamter Admin-Bereich für Mobile optimiert: Navigation ist jetzt immer eine übersichtliche, volle-Breite-Liste (statt umbrechender Pillen auf schmalen Bildschirmen); Aktions-Buttons in Tabellen (Voting-Versionen, Beamer-Steuerung) stapeln sich auf Mobile vertikal statt gequetscht nebeneinander zu stehen; weniger wichtige Tabellenspalten (z. B. „Erstellt am") werden auf kleinen Bildschirmen ausgeblendet; Formularfelder in Sponsoren/Interpreten-Verwaltung brechen auf schmalen Bildschirmen sauber um.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 
