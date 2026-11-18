@@ -49,6 +49,7 @@ function seitenLabel(string $seite): string
     static $labels = [
         'start' => 'Startseite',
         'voting' => 'Voting',
+        'sponsoren' => 'Sponsoren-Seite',
         'danke' => 'Danke-Seite',
         'archiv' => 'Archiv',
         'impressum' => 'Impressum',

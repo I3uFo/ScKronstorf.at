@@ -31,6 +31,13 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $schema = file_get_contents(__DIR__ . '/schema.sql');
 $pdo->exec($schema);
 
+// Nachträglich ergänzte Spalten für bereits bestehende Datenbanken (CREATE TABLE IF NOT EXISTS
+// legt sie bei schon vorhandenen Tabellen nicht automatisch an).
+$sponsorenSpalten = $pdo->query('PRAGMA table_info(sponsoren)')->fetchAll(PDO::FETCH_COLUMN, 1);
+if (!in_array('auf_danke_seite', $sponsorenSpalten, true)) {
+    $pdo->exec('ALTER TABLE sponsoren ADD COLUMN auf_danke_seite INTEGER NOT NULL DEFAULT 0');
+}
+
 // Admin-Zugang: Benutzername "admin", Erst-Passwort "Kronstorf#2016".
 // Das Passwort wird ausschließlich als bcrypt-Hash gespeichert, niemals im Klartext.
 $stmt = $pdo->prepare('SELECT COUNT(*) FROM admin_users');
@@ -57,6 +64,7 @@ $standardTexte = [
     ['voting', 'bestaetigung_text', 'Achtung: Nach dem Absenden sind keine Änderungen mehr möglich.'],
     ['voting', 'bestaetigung_abbrechen', 'Abbrechen'],
     ['voting', 'bestaetigung_bestaetigen', 'Jetzt absenden'],
+    ['sponsoren', 'titel', 'Danke für eure Unterstützung'],
     ['danke', 'titel', 'Danke für deine Stimme!'],
     ['danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!"],
     ['archiv', 'titel', 'Songcontest Archiv'],

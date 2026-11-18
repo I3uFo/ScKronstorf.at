@@ -100,23 +100,16 @@ require __DIR__ . '/includes/header.php';
   </div>
 
 <?php elseif ($hatAbgestimmt): ?>
-  <?php
-  $sponsoren = $pdo->query('SELECT * FROM sponsoren ORDER BY reihenfolge ASC')->fetchAll();
-  $anzahlSponsoren = max(1, count($sponsoren));
-  ?>
+  <?php $sponsoren = $pdo->query('SELECT * FROM sponsoren WHERE auf_danke_seite = 1 ORDER BY reihenfolge ASC')->fetchAll(); ?>
   <div class="danke-screen">
     <div>
       <h1 class="display-6 fw-bold voting-headline"><?= e(getText($pdo, 'danke', 'titel', 'Danke für deine Stimme!')) ?></h1>
-      <?php if (empty($sponsoren)): ?>
-        <p class="lead mt-3" style="white-space: pre-line;"><?= e(getText($pdo, 'danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!")) ?></p>
-      <?php else: ?>
-        <div class="sponsor-ring" style="--sponsor-count: <?= (int)$anzahlSponsoren ?>;">
-          <div class="sponsor-ring-center">
-            <p class="lead" style="white-space: pre-line;"><?= e(getText($pdo, 'danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!")) ?></p>
-          </div>
-          <?php foreach ($sponsoren as $i => $sponsor): ?>
+      <p class="lead mt-3" style="white-space: pre-line;"><?= e(getText($pdo, 'danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!")) ?></p>
+      <?php if (!empty($sponsoren)): ?>
+        <div class="sponsor-grid">
+          <?php foreach ($sponsoren as $sponsor): ?>
             <?php $ziel = $sponsor['link'] !== '' ? $sponsor['link'] : '#'; ?>
-            <a class="sponsor-ring-item" style="--i: <?= (int)$i ?>;" href="<?= e($ziel) ?>" target="_blank" rel="noopener">
+            <a class="sponsor-tile" href="<?= e($ziel) ?>" target="_blank" rel="noopener">
               <img src="assets/uploads/<?= e($sponsor['logo_datei']) ?>" alt="<?= e($sponsor['name']) ?>">
             </a>
           <?php endforeach; ?>

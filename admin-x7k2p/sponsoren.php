@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim((string)($_POST['name'] ?? ''));
             $link = trim((string)($_POST['link'] ?? ''));
             $reihenfolge = (int)($_POST['reihenfolge'] ?? 0);
+            $aufDankeSeite = !empty($_POST['auf_danke_seite']) ? 1 : 0;
 
             if ($name === '') {
                 $fehler = 'Bitte einen Namen angeben.';
@@ -51,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($uploadFehler !== null) {
                     $fehler = $uploadFehler;
                 } else {
-                    $insert = $pdo->prepare('INSERT INTO sponsoren (name, logo_datei, link, reihenfolge) VALUES (?, ?, ?, ?)');
-                    $insert->execute([$name, $dateiname, $link, $reihenfolge]);
+                    $insert = $pdo->prepare('INSERT INTO sponsoren (name, logo_datei, link, reihenfolge, auf_danke_seite) VALUES (?, ?, ?, ?, ?)');
+                    $insert->execute([$name, $dateiname, $link, $reihenfolge, $aufDankeSeite]);
                     $erfolg = 'Sponsor "' . $name . '" wurde angelegt.';
                 }
             }
@@ -61,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim((string)($_POST['name'] ?? ''));
             $link = trim((string)($_POST['link'] ?? ''));
             $reihenfolge = (int)($_POST['reihenfolge'] ?? 0);
+            $aufDankeSeite = !empty($_POST['auf_danke_seite']) ? 1 : 0;
 
             if ($name === '') {
                 $fehler = 'Bitte einen Namen angeben.';
@@ -73,16 +75,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt = $pdo->prepare('SELECT logo_datei FROM sponsoren WHERE id = ?');
                         $stmt->execute([$id]);
                         $altesLogo = $stmt->fetchColumn();
-                        $update = $pdo->prepare('UPDATE sponsoren SET name = ?, link = ?, reihenfolge = ?, logo_datei = ? WHERE id = ?');
-                        $update->execute([$name, $link, $reihenfolge, $dateiname, $id]);
+                        $update = $pdo->prepare('UPDATE sponsoren SET name = ?, link = ?, reihenfolge = ?, auf_danke_seite = ?, logo_datei = ? WHERE id = ?');
+                        $update->execute([$name, $link, $reihenfolge, $aufDankeSeite, $dateiname, $id]);
                         if ($altesLogo && is_file($uploadOrdner . $altesLogo)) {
                             @unlink($uploadOrdner . $altesLogo);
                         }
                         $erfolg = 'Sponsor wurde aktualisiert.';
                     }
                 } else {
-                    $update = $pdo->prepare('UPDATE sponsoren SET name = ?, link = ?, reihenfolge = ? WHERE id = ?');
-                    $update->execute([$name, $link, $reihenfolge, $id]);
+                    $update = $pdo->prepare('UPDATE sponsoren SET name = ?, link = ?, reihenfolge = ?, auf_danke_seite = ? WHERE id = ?');
+                    $update->execute([$name, $link, $reihenfolge, $aufDankeSeite, $id]);
                     $erfolg = 'Sponsor wurde aktualisiert.';
                 }
             }
@@ -132,6 +134,12 @@ require __DIR__ . '/includes/admin_header.php';
       <input type="file" name="logo" accept=".png,.jpg,.jpeg,.webp,.svg" class="form-control" required>
     </div>
     <div class="col-12">
+      <div class="form-check">
+        <input type="checkbox" name="auf_danke_seite" value="1" class="form-check-input" id="neu-auf-danke-seite">
+        <label class="form-check-label" for="neu-auf-danke-seite">Voting-Abschluss</label>
+      </div>
+    </div>
+    <div class="col-12">
       <button type="submit" class="btn btn-primary">Hinzufügen</button>
     </div>
   </form>
@@ -154,6 +162,10 @@ require __DIR__ . '/includes/admin_header.php';
             <div class="d-flex flex-wrap gap-2 align-items-center">
               <input type="number" name="reihenfolge" class="form-control" style="max-width:6rem;" value="<?= (int)$sponsor['reihenfolge'] ?>">
               <input type="file" name="logo" accept=".png,.jpg,.jpeg,.webp,.svg" class="form-control form-control-sm" style="min-width: 10rem;">
+            </div>
+            <div class="form-check mt-2">
+              <input type="checkbox" name="auf_danke_seite" value="1" class="form-check-input" id="auf-danke-seite-<?= (int)$sponsor['id'] ?>" <?= (int)$sponsor['auf_danke_seite'] === 1 ? 'checked' : '' ?>>
+              <label class="form-check-label" for="auf-danke-seite-<?= (int)$sponsor['id'] ?>">Voting-Abschluss</label>
             </div>
           </div>
           <div class="col-12 d-flex gap-2 mt-2">

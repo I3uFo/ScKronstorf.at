@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS sponsoren (
     name TEXT NOT NULL,
     logo_datei TEXT NOT NULL,
     link TEXT NOT NULL DEFAULT '',
-    reihenfolge INTEGER NOT NULL DEFAULT 0
+    reihenfolge INTEGER NOT NULL DEFAULT 0,
+    auf_danke_seite INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS seiten_texte (

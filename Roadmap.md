@@ -69,6 +69,12 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Abstimmseite: nativer Browser-Bestätigungsdialog vor dem endgültigen Absenden durch ein eigenes, ins Design eingepasstes Overlay ersetzt (randlose Karte mit Warnsymbol direkt über dem Abstimmformular, Texte über das Text-Management-System editierbar).
 - Vollständige Code-Durchsicht: CSS-Klassen, PHP-Funktionen/Konstanten, JavaScript und alle Seiten auf nicht mehr verwendete Inhalte geprüft. Gefunden und entfernt: ein nie ausgelesener Beispieltext (`bereits_abgestimmt`) sowie das nicht mehr referenzierte Rohbild (`WallpaperDog-5512189.jpg`, Ausgangsmaterial für das Abstimm-Hintergrundfoto) – beides vor der Löschung gesichert und erst nach erfolgreichem Funktionstest aller öffentlichen und Admin-Seiten endgültig verworfen. Die unverlinkte Archiv-Seite (`archiv.php`) bleibt bewusst bestehen (vorbereitete, noch nicht verlinkte Funktion).
 
+**19.11.2026 – Neue Sponsoren-Seite, Kachel-Raster, Mobile-Menü**
+- Sponsoren-Darstellung auf der Danke-Seite von einem kreisförmigen Logokranz auf ein responsives Kachel-Raster umgestellt: rechteckige Kacheln mit abgerundeten Ecken statt Kreisen, alle gleich groß, Logo mit Innenabstand eingepasst; 3 Kacheln pro Reihe auf Mobilgeräten, 6–8 auf dem Desktop. Beim Überfahren mit der Maus hebt sich das jeweilige Logo leicht hervor (Vergrößerung, roter Rahmen, stärkerer Schatten).
+- Neue, im Hauptmenü verlinkte Seite „Sponsoren" (`sponsoren.php`): zeigt alle Sponsoren aus derselben Datenbank/demselben Kachel-Raster wie die Danke-Seite, mit eigener Überschrift „Danke für eure Unterstützung" (Schriftart der Startseite) vor demselben Hintergrundfoto wie die Abstimmseite.
+- Admin-Sponsorenverwaltung: neue Checkbox „Voting-Abschluss" pro Sponsor – damit steuerbar, welche Sponsoren zusätzlich zur neuen Sponsoren-Seite auch auf der Danke-Seite nach der Abstimmung erscheinen (Sponsoren-Seite zeigt immer alle, unabhängig von der Checkbox).
+- Mobile Navigation: statt der zuvor immer sichtbaren, gestapelten Linkliste gibt es jetzt ein klassisches Burger-Menü (drei Striche oben rechts neben dem Logo), das die Seitenliste erst bei Bedarf aufklappt; dabei einen Fehler behoben, durch den das Einklappen trotz Klick wirkungslos blieb (eine Bootstrap-Utility-Klasse erzwang per `!important` dauerhaft die sichtbare Darstellung).
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

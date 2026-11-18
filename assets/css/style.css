@@ -139,6 +139,57 @@ a {
   color: #fff;
 }
 
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+}
+
+@media (min-width: 768px) {
+  .site-nav.collapse:not(.show) {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .nav-link-custom {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--border);
@@ -507,30 +558,30 @@ a {
   padding: 2rem 0;
 }
 
-.sponsor-ring {
-  position: relative;
-  width: min(94vw, 620px);
-  aspect-ratio: 1;
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: min(100%, 900px);
   margin: 2rem auto 0;
 }
 
-.sponsor-ring-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 62%;
+@media (min-width: 768px) {
+  .sponsor-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
 }
 
-.sponsor-ring-item {
-  --radius: min(40vw, 260px);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  margin: -50px;
-  border-radius: 50%;
+@media (min-width: 992px) {
+  .sponsor-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+.sponsor-tile {
+  aspect-ratio: 1;
+  border-radius: 14px;
   /* Bewusst immer hell, unabhängig vom Dark Mode: Sponsorenlogos sind meist für einen
      hellen Hintergrund gestaltet und sollen darauf immer gut lesbar bleiben. */
   background: #faf7f2;
@@ -539,20 +590,28 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(calc(360deg / var(--sponsor-count) * var(--i))) translate(var(--radius))
-    rotate(calc(-360deg / var(--sponsor-count) * var(--i)));
+  padding: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.sponsor-ring-item img {
-  max-width: 76%;
-  max-height: 76%;
-  object-fit: contain;
+.sponsor-tile:hover,
+.sponsor-tile:focus-visible {
+  transform: scale(1.08);
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  z-index: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .sponsor-ring-item {
-    transition: transform 0.4s ease;
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-tile {
+    transition: none;
   }
+}
+
+.sponsor-tile img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /* ---------- Beamer ---------- */
