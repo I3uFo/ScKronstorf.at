@@ -5,10 +5,11 @@ require __DIR__ . '/includes/bootstrap.php';
 $pdo = db();
 $aktivNav = 'voting';
 $votingAktiv = aktuelleVotingVersion($pdo, 'offen') !== null;
+$heroBg = true;
 require __DIR__ . '/includes/header.php';
 ?>
-<div class="text-center py-5">
-  <h1 class="display-5 fw-bold mb-3"><?= e(getText($pdo, 'voting', 'titel', 'Jetzt Abstimmen')) ?></h1>
+<div class="text-center py-5 d-flex flex-column align-items-center justify-content-center" style="min-height: 60vh;">
+  <h1 class="display-5 fw-bold mb-3 voting-headline"><?= e(getText($pdo, 'voting', 'titel', 'Jetzt Abstimmen')) ?></h1>
   <p class="lead" style="white-space: pre-line;"><?= e(getText($pdo, 'voting', 'landing_text', "Stimm jetzt für deinen Lieblingsinterpreten ab und entscheide mit,\nwer den Songcontest Kronstorf gewinnt!")) ?></p>
   <div class="mt-10 mb-2">
     Voting-Status:

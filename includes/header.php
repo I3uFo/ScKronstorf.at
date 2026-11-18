@@ -3,6 +3,8 @@
 $pdo = db();
 $aktivNav = $aktivNav ?? '';
 $robots = $robots ?? 'index,follow';
+$heroBg = $heroBg ?? false;
+$heroBgVariant = $heroBgVariant ?? null;
 ?><!DOCTYPE html>
 <html lang="de">
 <head>
@@ -27,4 +29,4 @@ $robots = $robots ?? 'index,follow';
     </nav>
   </div>
 </header>
-<main class="container py-4">
+<main class="container py-4<?= $heroBg ? ' hero-bg' . ($heroBgVariant ? ' hero-bg--' . e($heroBgVariant) : '') : '' ?>">

@@ -112,6 +112,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  var confirmOverlay = document.getElementById('confirm-overlay');
+  var confirmOk = document.getElementById('confirm-ok');
+  var confirmCancel = document.getElementById('confirm-cancel');
+
+  function zeigeBestaetigung() {
+    if (confirmOverlay) {
+      confirmOverlay.hidden = false;
+    }
+  }
+
+  function verbergeBestaetigung() {
+    if (confirmOverlay) {
+      confirmOverlay.hidden = true;
+    }
+  }
+
   form.addEventListener('submit', function (e) {
     if (anzahlVergeben() !== maxPlatz) {
       e.preventDefault();
@@ -121,13 +137,31 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       return;
     }
-    var bestaetigt = window.confirm(
-      'Achtung: Nach dem Absenden sind keine Änderungen mehr möglich. Stimme jetzt endgültig abschicken?'
-    );
-    if (!bestaetigt) {
+    if (confirmOverlay) {
       e.preventDefault();
+      zeigeBestaetigung();
     }
   });
+
+  if (confirmOverlay && confirmOk && confirmCancel) {
+    confirmOk.addEventListener('click', function () {
+      verbergeBestaetigung();
+      form.submit();
+    });
+    confirmCancel.addEventListener('click', function () {
+      verbergeBestaetigung();
+    });
+    confirmOverlay.addEventListener('click', function (e) {
+      if (e.target === confirmOverlay) {
+        verbergeBestaetigung();
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !confirmOverlay.hidden) {
+        verbergeBestaetigung();
+      }
+    });
+  }
 
   aktualisiereOptionen();
   aktualisiereZeilen();

@@ -43,15 +43,20 @@ if ((int)$stmt->fetchColumn() === 0) {
 
 // Standardtexte für alle Seiten seeden (nur falls noch nicht vorhanden).
 $standardTexte = [
-    ['start', 'save_the_date_titel', 'Save the Date'],
-    ['start', 'save_the_date_termin', "Samstag, 21. November 2026\nJoseph Heimel Halle Kronstorf"],
+    ['start', 'save_the_date_edition', '32. Songcontest'],
+    ['start', 'save_the_date_datum', '21.11.2026'],
+    ['start', 'save_the_date_uhrzeit', '20:00 Uhr'],
+    ['start', 'save_the_date_ort', 'Josef-Heiml-Halle'],
     ['voting', 'titel', 'Jetzt Abstimmen'],
     ['voting', 'titel_zeile2', 'Beim Songcontest Publikums-Voting'],
     ['voting', 'landing_text', "Stimm jetzt für deinen Lieblingsinterpreten ab und entscheide mit,\nwer den Songcontest Kronstorf gewinnt!"],
     ['voting', 'anleitung', 'Wähle für jeden Platz von 1 bis 11 deinen Favoriten aus.'],
     ['voting', 'anleitung_hinweis', 'Jeder Interpret kann nur einmal ausgewählt werden.'],
     ['voting', 'kein_voting_aktiv', 'Aktuell ist kein Voting geöffnet. Schau später wieder vorbei!'],
-    ['voting', 'bereits_abgestimmt', 'Von diesem Gerät wurde bereits abgestimmt.'],
+    ['voting', 'bestaetigung_titel', 'Stimme jetzt absenden?'],
+    ['voting', 'bestaetigung_text', 'Achtung: Nach dem Absenden sind keine Änderungen mehr möglich.'],
+    ['voting', 'bestaetigung_abbrechen', 'Abbrechen'],
+    ['voting', 'bestaetigung_bestaetigen', 'Jetzt absenden'],
     ['danke', 'titel', 'Danke für deine Stimme!'],
     ['danke', 'text', "Ihre Stimme wurde erfolgreich gezählt.\nWir bedanken uns herzlich bei Ihnen sowie bei unseren Sponsoren\nund wünschen Ihnen weiterhin gute Unterhaltung!"],
     ['archiv', 'titel', 'Songcontest Archiv'],

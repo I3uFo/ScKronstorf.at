@@ -61,6 +61,14 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Beamer-Ansicht: Hintergrundfarbe exakt an den Dark-Mode-Hintergrund der Startseite angeglichen.
 - Gesamter Admin-Bereich für Mobile optimiert: Navigation ist jetzt immer eine übersichtliche, volle-Breite-Liste (statt umbrechender Pillen auf schmalen Bildschirmen); Aktions-Buttons in Tabellen (Voting-Versionen, Beamer-Steuerung) stapeln sich auf Mobile vertikal statt gequetscht nebeneinander zu stehen; weniger wichtige Tabellenspalten (z. B. „Erstellt am") werden auf kleinen Bildschirmen ausgeblendet; Formularfelder in Sponsoren/Interpreten-Verwaltung brechen auf schmalen Bildschirmen sauber um.
 
+**18.11.2026 – Save-the-Date-Grafik, Seiten-Hintergründe, Bestätigungs-Overlay & Code-Bereinigung**
+- „Save the Date"-Ankündigung auf der Startseite als mehrteilige Grafik umgesetzt (Wordmark „Save the Date", roter Schriftzug-Banner „32. Songcontest", schwarze Datum/Uhrzeit-Box, Ortszeile mit Pin-Icon); Schriftarten Roboto Slab und Dancing Script lokal selbst gehostet (kein CDN).
+- Startseite und Voting-Landingpage erhalten ein vollflächiges Hintergrundfoto mit dunklem Verlaufs-Overlay; die eigentliche Abstimmseite (`abstimmen.php`) bekommt ein eigenes, dazu passendes Hintergrundfoto (rechte Hälfte eines bereitgestellten Mikrofon-Fotos, leicht geweichzeichnet), technisch über eine wiederverwendbare Hintergrund-Variante im Layout-Grundgerüst gelöst.
+- Akzentfarbe der gesamten Seite (Header-Navigation, primäre Buttons) auf das Rot des „32. Songcontest"-Schriftzugs (`#e11717`) umgestellt.
+- Überschriften von Voting- und Abstimmseite (alle drei Zustände: aktiv, kein Voting, Dankesseite) auf die Schriftart der Startseite (Roboto Slab) umgestellt, bestehende Schriftgrößen beibehalten.
+- Abstimmseite: nativer Browser-Bestätigungsdialog vor dem endgültigen Absenden durch ein eigenes, ins Design eingepasstes Overlay ersetzt (randlose Karte mit Warnsymbol direkt über dem Abstimmformular, Texte über das Text-Management-System editierbar).
+- Vollständige Code-Durchsicht: CSS-Klassen, PHP-Funktionen/Konstanten, JavaScript und alle Seiten auf nicht mehr verwendete Inhalte geprüft. Gefunden und entfernt: ein nie ausgelesener Beispieltext (`bereits_abgestimmt`) sowie das nicht mehr referenzierte Rohbild (`WallpaperDog-5512189.jpg`, Ausgangsmaterial für das Abstimm-Hintergrundfoto) – beides vor der Löschung gesichert und erst nach erfolgreichem Funktionstest aller öffentlichen und Admin-Seiten endgültig verworfen. Die unverlinkte Archiv-Seite (`archiv.php`) bleibt bewusst bestehen (vorbereitete, noch nicht verlinkte Funktion).
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 
