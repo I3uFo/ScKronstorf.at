@@ -76,7 +76,7 @@ if ($version !== null) {
 
                     $pdo->commit();
 
-                    header('Location: abstimmen');
+                    header('Location: abstimmen.php');
                     exit;
                 } catch (PDOException $e) {
                     $pdo->rollBack();

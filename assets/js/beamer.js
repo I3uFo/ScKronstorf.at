@@ -34,7 +34,7 @@
   }
 
   function laden() {
-    fetch('beamer_state?v=' + encodeURIComponent(versionId), { cache: 'no-store' })
+    fetch('beamer_state.php?v=' + encodeURIComponent(versionId), { cache: 'no-store' })
       .then(function (antwort) { return antwort.json(); })
       .then(function (daten) {
         if (!daten || daten.fehler || !daten.ergebnisse) {

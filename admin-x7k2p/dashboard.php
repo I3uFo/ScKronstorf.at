@@ -91,11 +91,11 @@ require __DIR__ . '/includes/admin_header.php';
 </div>
 
 <div class="mt-4 d-flex flex-wrap gap-2">
-  <a href="voting_versionen" class="btn btn-outline-secondary">Voting-Versionen verwalten</a>
-  <a href="interpreten" class="btn btn-outline-secondary">Interpreten importieren</a>
-  <a href="sponsoren" class="btn btn-outline-secondary">Sponsoren verwalten</a>
-  <a href="texte" class="btn btn-outline-secondary">Texte bearbeiten</a>
-  <a href="beamer_control" class="btn btn-outline-secondary">Beamer steuern</a>
+  <a href="voting_versionen.php" class="btn btn-outline-secondary">Voting-Versionen verwalten</a>
+  <a href="interpreten.php" class="btn btn-outline-secondary">Interpreten importieren</a>
+  <a href="sponsoren.php" class="btn btn-outline-secondary">Sponsoren verwalten</a>
+  <a href="texte.php" class="btn btn-outline-secondary">Texte bearbeiten</a>
+  <a href="beamer_control.php" class="btn btn-outline-secondary">Beamer steuern</a>
 </div>
 
 <?php require __DIR__ . '/includes/admin_footer.php'; ?>

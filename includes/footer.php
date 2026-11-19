@@ -3,8 +3,8 @@
   <div class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
     <span>&copy; <?= date('Y') ?> SC Zauner Group Kronstorf</span>
     <div class="d-flex gap-3">
-      <a href="impressum">Impressum</a>
-      <a href="datenschutz">Datenschutzerklärung</a>
+      <a href="impressum.php">Impressum</a>
+      <a href="datenschutz.php">Datenschutzerklärung</a>
     </div>
   </div>
 </footer>

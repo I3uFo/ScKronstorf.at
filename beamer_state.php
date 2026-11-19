@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/includes/bootstrap.php';
-requireAdminLogin('admin-x7k2p/index');
+requireAdminLogin('admin-x7k2p/index.php');
 
 $pdo = db();
 header('Content-Type: application/json; charset=utf-8');

@@ -102,7 +102,7 @@ require __DIR__ . '/includes/admin_header.php';
           <td class="d-none d-md-table-cell"><?= e($v['erstellt_am']) ?></td>
           <td>
             <div class="d-grid gap-2 admin-actions">
-              <a href="interpreten?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-secondary">Interpreten</a>
+              <a href="interpreten.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-secondary">Interpreten</a>
               <?php if ($v['status'] === 'vorbereitung'): ?>
                 <form method="post">
                   <?= csrfField() ?>
@@ -118,7 +118,7 @@ require __DIR__ . '/includes/admin_header.php';
                   <button type="submit" class="btn btn-sm btn-danger w-100">Voting schließen</button>
                 </form>
               <?php else: ?>
-                <a href="beamer_control?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-theme">Beamer steuern</a>
+                <a href="beamer_control.php?v=<?= (int)$v['id'] ?>" class="btn btn-sm btn-outline-theme">Beamer steuern</a>
               <?php endif; ?>
               <?php if ($v['status'] !== 'offen'): ?>
                 <form method="post">
