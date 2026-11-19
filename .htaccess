@@ -1,5 +1,19 @@
 Options -Indexes
 
+# Saubere URLs ohne ".php"-Endung. Direkte Aufrufe mit ".php" werden dauerhaft
+# (301) auf die Version ohne Endung umgeleitet, damit es nur eine gültige URL
+# pro Seite gibt; intern liefert der Server dann weiterhin die .php-Datei aus.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{THE_REQUEST} \s/+(.*?)\.php[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.+)$ $1.php [L]
+</IfModule>
+
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"

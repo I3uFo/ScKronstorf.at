@@ -99,6 +99,13 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Besonderheit beim gemeinsamen Enthüllen von Platz 1 und 2 (das laut bestehender Logik immer gemeinsam passiert): Der Abstand zwischen den beiden Balken vergrößert sich animiert, der Name von Platz 1 wächst gleichzeitig animiert auf die doppelte Schriftgröße, darf über den Balkenrand hinausragen, steht zentriert statt linksbündig und bekommt einen animierten Gold-Glitzer-Effekt (inkl. Unterstützung für mehrzeilige, lange Namen mit korrekter Zentrierung zur Balkenmitte).
 - Mehrere Feinschliff-Korrekturen dazu: Schatteneffekt des Namens simuliert Lichteinfall aus Richtung 13 Uhr, bei Platz 1 per `filter: drop-shadow()` statt `text-shadow` umgesetzt (sonst rendert der Schatten bei der Gold-Verlaufs-Textmaske fälschlich davor statt dahinter); Gold-Animation verlangsamt; Balkenfarbe im unenthüllten Zustand aufgehellt für besseren Kontrast zum neuen Hintergrundbild.
 
+**19.11.2026 (Teil 7) – Saubere URLs ohne „.php"**
+- Alle Seiten (öffentlich wie Admin-Bereich) sind jetzt ohne „.php"-Endung erreichbar, z. B. `/voting` statt `/voting.php`, `/admin-x7k2p/dashboard` statt `/admin-x7k2p/dashboard.php`. Technisch über `mod_rewrite`-Regeln in der `.htaccess` gelöst: Aufrufe mit „.php" werden dauerhaft (301) auf die Version ohne Endung umgeleitet, intern liefert der Server weiterhin dieselbe `.php`-Datei aus – Funktionslogik, Formulare und serverseitige Verarbeitung bleiben unverändert.
+- Der Admin-Ordner `admin-x7k2p` behält bewusst seinen unauffindbaren Namen (Sicherheitsentscheidung, nur die `.php`-Endung der enthaltenen Seiten entfällt).
+- Alle internen Links, Formular-Weiterleitungen und der JavaScript-Abruf der Beamer-Live-Daten (`beamer_state`) wurden entsprechend auf die neuen Pfade umgestellt.
+- `getText()`-zu-`seitenText()`-Umbenennung erneut ausgeführt: keine Treffer mehr gefunden, Umbenennung war bereits vollständig.
+- Vollständiger Funktionstest aller öffentlichen und Admin-Seiten mit den neuen URLs (inkl. Login-Weiterleitung, Logout, Beamer-Live-Abruf) über einen lokalen Test-Router, da der PHP-Entwicklungsserver `.htaccess`-Regeln nicht selbst auswertet.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

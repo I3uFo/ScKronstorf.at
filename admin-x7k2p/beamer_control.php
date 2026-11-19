@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $versionId > 0) {
         }
         $pdo->prepare('UPDATE voting_versionen SET beamer_freigabe_platz = ? WHERE id = ?')
             ->execute([$neu, $versionId]);
-        header('Location: beamer_control.php?v=' . $versionId);
+        header('Location: beamer_control?v=' . $versionId);
         exit;
     }
 }
@@ -106,7 +106,7 @@ require __DIR__ . '/includes/admin_header.php';
           <input type="hidden" name="aktion" value="weiter">
           <button type="submit" class="btn btn-success" <?= $revealed >= $gesamt ? 'disabled' : '' ?>>Nächsten Platz enthüllen »</button>
         </form>
-        <a href="../beamer.php?v=<?= $versionId ?>" target="_blank" class="btn btn-outline-theme">Beamer-Ansicht öffnen</a>
+        <a href="../beamer?v=<?= $versionId ?>" target="_blank" class="btn btn-outline-theme">Beamer-Ansicht öffnen</a>
       </div>
     </div>
 

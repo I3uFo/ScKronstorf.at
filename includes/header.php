@@ -19,7 +19,7 @@ $heroBgVariant = $heroBgVariant ?? null;
 <body class="site-body">
 <header class="site-header">
   <div class="container d-flex flex-wrap align-items-center gap-3 py-2">
-    <a href="index.php" class="d-flex align-items-center gap-2 text-decoration-none site-brand">
+    <a href="/" class="d-flex align-items-center gap-2 text-decoration-none site-brand">
       <img src="assets/img/logo.png" alt="Logo SC Zauner Group Kronstorf" class="site-logo">
       <span class="site-name">SC Zauner Group<br>Kronstorf</span>
     </a>
@@ -29,9 +29,9 @@ $heroBgVariant = $heroBgVariant ?? null;
       <span class="nav-toggle-bar"></span>
     </button>
     <nav class="site-nav collapse ms-md-auto" id="site-nav">
-      <a class="nav-link-custom<?= $aktivNav === 'start' ? ' active' : '' ?>" href="index.php">Songcontest</a>
-      <a class="nav-link-custom<?= $aktivNav === 'voting' ? ' active' : '' ?>" href="voting.php">Voting</a>
-      <a class="nav-link-custom<?= $aktivNav === 'sponsoren' ? ' active' : '' ?>" href="sponsoren.php">Sponsoren</a>
+      <a class="nav-link-custom<?= $aktivNav === 'start' ? ' active' : '' ?>" href="/">Songcontest</a>
+      <a class="nav-link-custom<?= $aktivNav === 'voting' ? ' active' : '' ?>" href="voting">Voting</a>
+      <a class="nav-link-custom<?= $aktivNav === 'sponsoren' ? ' active' : '' ?>" href="sponsoren">Sponsoren</a>
     </nav>
   </div>
 </header>

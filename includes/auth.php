@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-function requireAdminLogin(string $loginPfad = 'index.php'): void
+function requireAdminLogin(string $loginPfad = 'index'): void
 {
     if (empty($_SESSION['admin_id'])) {
         header('Location: ' . $loginPfad);

@@ -6,7 +6,7 @@ $pdo = db();
 $fehler = null;
 
 if (!empty($_SESSION['admin_id'])) {
-    header('Location: dashboard.php');
+    header('Location: dashboard');
     exit;
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['admin_id'] = $benutzer['id'];
                 $_SESSION['admin_last_activity'] = time();
                 unset($_SESSION['login_versuche']);
-                header('Location: dashboard.php');
+                header('Location: dashboard');
                 exit;
             }
 

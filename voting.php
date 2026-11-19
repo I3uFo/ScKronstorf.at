@@ -18,7 +18,7 @@ require __DIR__ . '/includes/header.php';
     </span>
   </div>
   <?php if ($votingAktiv): ?>
-    <a href="abstimmen.php" class="btn btn-primary btn-lg mt-2">Jetzt abstimmen</a>
+    <a href="abstimmen" class="btn btn-primary btn-lg mt-2">Jetzt abstimmen</a>
   <?php endif; ?>
 </div>
 <?php require __DIR__ . '/includes/footer.php'; ?>

@@ -16,7 +16,7 @@ $version = $stmt->fetch();
 if ($version === false) {
     require __DIR__ . '/includes/admin_header.php';
     echo '<div class="alert alert-warning">Bitte zuerst eine Voting-Version auswählen.</div>';
-    echo '<a href="voting_versionen.php" class="btn btn-outline-secondary">Zu den Voting-Versionen</a>';
+    echo '<a href="voting_versionen" class="btn btn-outline-secondary">Zu den Voting-Versionen</a>';
     require __DIR__ . '/includes/admin_footer.php';
     exit;
 }
