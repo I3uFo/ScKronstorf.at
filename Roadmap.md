@@ -99,6 +99,11 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Besonderheit beim gemeinsamen Enthüllen von Platz 1 und 2 (das laut bestehender Logik immer gemeinsam passiert): Der Abstand zwischen den beiden Balken vergrößert sich animiert, der Name von Platz 1 wächst gleichzeitig animiert auf die doppelte Schriftgröße, darf über den Balkenrand hinausragen, steht zentriert statt linksbündig und bekommt einen animierten Gold-Glitzer-Effekt (inkl. Unterstützung für mehrzeilige, lange Namen mit korrekter Zentrierung zur Balkenmitte).
 - Mehrere Feinschliff-Korrekturen dazu: Schatteneffekt des Namens simuliert Lichteinfall aus Richtung 13 Uhr, bei Platz 1 per `filter: drop-shadow()` statt `text-shadow` umgesetzt (sonst rendert der Schatten bei der Gold-Verlaufs-Textmaske fälschlich davor statt dahinter); Gold-Animation verlangsamt; Balkenfarbe im unenthüllten Zustand aufgehellt für besseren Kontrast zum neuen Hintergrundbild.
 
+**19.11.2026 (Teil 7) – Versuch „saubere URLs ohne .php" wieder zurückgenommen**
+- Alle Seiten sollten testweise ohne „.php"-Endung erreichbar sein (z. B. `/voting` statt `/voting.php`), umgesetzt über `mod_rewrite`-Regeln in der `.htaccess`.
+- Stellte sich beim Live-Test als nicht umsetzbar heraus: Das Hosting läuft über **Nginx** (erkennbar am aaPanel-Kundenportal mit CMS-Rewrite-Vorlagen), nicht über Apache – `.htaccess`-Dateien werden von Nginx komplett ignoriert, unabhängig vom Inhalt. Das eingeschränkte Kundenportal erlaubt zudem nur die Auswahl fertiger CMS-Vorlagen (WordPress, Discuz, ThinkPHP, …), die zu unserem Seitenaufbau nicht passen, und bietet keine Möglichkeit, eigene Nginx-Regeln einzutragen.
+- Da weder Server- noch SSH-Zugriff zur Verfügung steht, wurde die komplette Änderung rückgängig gemacht (`git revert`); alle Seiten sind wie zuvor über ihre `.php`-Endung erreichbar. Dasselbe Nginx-vs-Apache-Thema betrifft vermutlich auch die bestehenden Schutz-`.htaccess`-Dateien (`db/`, `config/`, `includes/`) – unbedingt händisch prüfen, ob `db/kronstorf.sqlite` über die echte Domain tatsächlich gesperrt ist.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 
