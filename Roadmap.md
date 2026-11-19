@@ -104,6 +104,13 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Stellte sich beim Live-Test als nicht umsetzbar heraus: Das Hosting läuft über **Nginx** (erkennbar am aaPanel-Kundenportal mit CMS-Rewrite-Vorlagen), nicht über Apache – `.htaccess`-Dateien werden von Nginx komplett ignoriert, unabhängig vom Inhalt. Das eingeschränkte Kundenportal erlaubt zudem nur die Auswahl fertiger CMS-Vorlagen (WordPress, Discuz, ThinkPHP, …), die zu unserem Seitenaufbau nicht passen, und bietet keine Möglichkeit, eigene Nginx-Regeln einzutragen.
 - Da weder Server- noch SSH-Zugriff zur Verfügung steht, wurde die komplette Änderung rückgängig gemacht (`git revert`); alle Seiten sind wie zuvor über ihre `.php`-Endung erreichbar. Dasselbe Nginx-vs-Apache-Thema betrifft vermutlich auch die bestehenden Schutz-`.htaccess`-Dateien (`db/`, `config/`, `includes/`) – unbedingt händisch prüfen, ob `db/kronstorf.sqlite` über die echte Domain tatsächlich gesperrt ist.
 
+**19.11.2026 (Teil 8) – Sicherheitsvorfall: Datenbank war öffentlich herunterladbar**
+- Bestätigt: `db/kronstorf.sqlite` war über die Live-Domain direkt herunterladbar, da die Schutz-`.htaccess`-Datei auf dem Nginx-Hosting wirkungslos ist (siehe Teil 7) und das Kundenportal keine eigene Nginx-Sperrregel zulässt.
+- Da weder ein Verschieben der Datei außerhalb des Web-Ordners (FTP/Dateimanager sind auf das Docroot der Seite beschränkt) noch eine Server-Regel möglich ist, wurde die Datenbankdatei umbenannt: von `db/kronstorf.sqlite` auf einen versteckten, zufälligen Dateinamen (`db/.kronstorf_5c5c201b93.sqlite`), referenziert über `DB_PATH` in `config/config.php` sowie in `db/init.php`. Die bisher bekannte, öffentliche URL funktioniert dadurch nicht mehr.
+- **Wichtig:** Das ist nur eine Sofortmaßnahme (Verschleierung durch einen unauffindbaren Namen), kein vollwertiger Schutz wie eine echte Server-Sperrregel – wer den neuen Dateinamen kennt oder errät, kann die Datei weiterhin herunterladen. Der Hoster sollte weiterhin um eine echte Nginx-Sperrregel für `/db/`, `/config/`, `/includes/` und `*.sqlite`-Dateien gebeten werden, sobald das möglich ist.
+- Auf dem Live-Server muss die bestehende `db/kronstorf.sqlite` manuell auf `db/.kronstorf_5c5c201b93.sqlite` umbenannt und die aktualisierten Dateien (`config/config.php`, `db/init.php`) hochgeladen werden – sonst findet die Anwendung ihre Datenbank nicht mehr.
+- Empfehlung an den Verein: Admin-Passwort vorsorglich ändern, da nicht bekannt ist, ob die Datei vor dieser Korrektur bereits von jemand anderem heruntergeladen wurde.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

@@ -22,7 +22,7 @@ if (!$istCli) {
     }
 }
 
-$dbPfad = __DIR__ . '/kronstorf.sqlite';
+$dbPfad = __DIR__ . '/.kronstorf_5c5c201b93.sqlite';
 $neuAngelegt = !is_file($dbPfad);
 
 $pdo = new PDO('sqlite:' . $dbPfad);
