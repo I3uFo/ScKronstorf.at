@@ -78,6 +78,10 @@ gewünscht, kann das auf Wunsch erweitert werden.
 **19.11.2026 (Teil 2) – Code-Umbenennung**
 - Die Funktion zum Laden der Seitentexte aus dem Text-Management-System heißt jetzt `seitenText()` statt `getText()` (Umbenennung an allen Aufrufstellen sowie der Funktionsdefinition selbst, 8 Dateien betroffen); nach der Umbenennung alle öffentlichen Seiten auf Funktion und Fehlerfreiheit geprüft.
 
+**19.11.2026 (Teil 3) – Go-Live & Kachel-Größe auf Desktop korrigiert**
+- Die Seite ist live unter songcontest.sckronstorf.at.
+- Sponsoren-Kachel-Raster war ab 992px Breite (Desktop/Vollbild) fest auf 900px Maximalbreite gedeckelt, wodurch die Kacheln bei 8 Spalten auf großen Monitoren unnötig klein wirkten; Deckelung für diesen Breitenbereich entfernt, Raster nutzt jetzt die volle Containerbreite. Tablet-Bereich (768–991px) und Mobile-Ansicht (3 Spalten) bewusst unverändert gelassen.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

@@ -576,6 +576,7 @@ a {
 @media (min-width: 992px) {
   .sponsor-grid {
     grid-template-columns: repeat(8, 1fr);
+    width: 100%;
   }
 }
 
