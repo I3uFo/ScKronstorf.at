@@ -8,8 +8,8 @@ $videos = $pdo->query('SELECT * FROM archiv_videos ORDER BY jahr DESC, reihenfol
 
 require __DIR__ . '/includes/header.php';
 ?>
-<h1 class="mb-2"><?= e(getText($pdo, 'archiv', 'titel', 'Songcontest Archiv')) ?></h1>
-<p class="text-muted mb-4"><?= e(getText($pdo, 'archiv', 'text', 'Hier findest du Videos vergangener Songcontest-Abende.')) ?></p>
+<h1 class="mb-2"><?= e(seitenText($pdo, 'archiv', 'titel', 'Songcontest Archiv')) ?></h1>
+<p class="text-muted mb-4"><?= e(seitenText($pdo, 'archiv', 'text', 'Hier findest du Videos vergangener Songcontest-Abende.')) ?></p>
 
 <?php if (empty($videos)): ?>
   <p>Es sind noch keine Videos hinterlegt.</p>

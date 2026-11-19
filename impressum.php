@@ -26,7 +26,7 @@ require __DIR__ . '/includes/header.php';
   <p>Obmann: Stefan Frühwirth</p>
 
   <h2 class="h5 mt-4">Vereinszweck</h2>
-  <p><?= e(getText($pdo, 'impressum', 'vereinszweck', 'Förderung des Sports im Rahmen der Vereinstätigkeit.')) ?></p>
+  <p><?= e(seitenText($pdo, 'impressum', 'vereinszweck', 'Förderung des Sports im Rahmen der Vereinstätigkeit.')) ?></p>
 
   <h2 class="h5 mt-4">Kontakt</h2>
   <p>

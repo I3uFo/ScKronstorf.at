@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-function getText(PDO $pdo, string $seite, string $schluessel, string $standard = ''): string
+function seitenText(PDO $pdo, string $seite, string $schluessel, string $standard = ''): string
 {
     static $cache = [];
     $key = $seite . '::' . $schluessel;

@@ -75,6 +75,9 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Admin-Sponsorenverwaltung: neue Checkbox „Voting-Abschluss" pro Sponsor – damit steuerbar, welche Sponsoren zusätzlich zur neuen Sponsoren-Seite auch auf der Danke-Seite nach der Abstimmung erscheinen (Sponsoren-Seite zeigt immer alle, unabhängig von der Checkbox).
 - Mobile Navigation: statt der zuvor immer sichtbaren, gestapelten Linkliste gibt es jetzt ein klassisches Burger-Menü (drei Striche oben rechts neben dem Logo), das die Seitenliste erst bei Bedarf aufklappt; dabei einen Fehler behoben, durch den das Einklappen trotz Klick wirkungslos blieb (eine Bootstrap-Utility-Klasse erzwang per `!important` dauerhaft die sichtbare Darstellung).
 
+**19.11.2026 (Teil 2) – Code-Umbenennung**
+- Die Funktion zum Laden der Seitentexte aus dem Text-Management-System heißt jetzt `seitenText()` statt `getText()` (Umbenennung an allen Aufrufstellen sowie der Funktionsdefinition selbst, 8 Dateien betroffen); nach der Umbenennung alle öffentlichen Seiten auf Funktion und Fehlerfreiheit geprüft.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

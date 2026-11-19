@@ -12,7 +12,7 @@ require __DIR__ . '/includes/header.php';
 ?>
 <div class="danke-screen">
   <div>
-    <h1 class="display-6 fw-bold voting-headline"><?= e(getText($pdo, 'sponsoren', 'titel', 'Danke für eure Unterstützung')) ?></h1>
+    <h1 class="display-6 fw-bold voting-headline"><?= e(seitenText($pdo, 'sponsoren', 'titel', 'Danke für eure Unterstützung')) ?></h1>
     <?php if (!empty($sponsoren)): ?>
       <div class="sponsor-grid">
         <?php foreach ($sponsoren as $sponsor): ?>
