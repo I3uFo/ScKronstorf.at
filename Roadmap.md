@@ -90,6 +90,15 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Zusätzlich ca. 1cm Innenabstand links und rechts ergänzt, damit das Raster nicht bis an den Bildschirmrand reicht. Mobile und Tablet-Ansicht unverändert.
 - `getText()`-zu-`seitenText()`-Umbenennung erneut ausgeführt: keine Treffer mehr gefunden, Umbenennung war bereits vollständig.
 
+**19.11.2026 (Teil 6) – Beamer-Ansicht überarbeitet**
+- Schriftart der Startseite (Roboto Slab) übernommen, Spaltenbreiten (Platzierung, Punktzahl) entsprechend angepasst; Platzierungszahl und Punktzahl deutlich größer dargestellt, ohne die Balkenhöhe zu verändern.
+- Eigene Namensspalte entfernt: Der Balken läuft jetzt durchgehend von der Platzierungszahl bis zur Punktzahl; Verlauf des enthüllten Balkens läuft von einem helleren Rot in das Startseiten-Rot (`#e11717`), passend zum restlichen Auftritt.
+- Interpreten-Name liegt jetzt als Overlay direkt auf dem Balken (linksbündig mit kleinem Einzug), weiß mit Schlagschatten für Lesbarkeit.
+- Hintergrundbild ergänzt: linke Hälfte des bereitgestellten Mikrofon-/Scheinwerfer-Fotos horizontal gespiegelt zu einem symmetrischen Bild zusammengesetzt und weichgezeichnet.
+- Bugfix: Die Namen von Platz 1 und 2 waren durch eine veraltete, auf die vererbte statt die neue Basisschriftgröße bezogene `em`-Berechnung tatsächlich *kleiner* als alle übrigen Plätze – jetzt haben alle Namen standardmäßig dieselbe Größe.
+- Besonderheit beim gemeinsamen Enthüllen von Platz 1 und 2 (das laut bestehender Logik immer gemeinsam passiert): Der Abstand zwischen den beiden Balken vergrößert sich animiert, der Name von Platz 1 wächst gleichzeitig animiert auf die doppelte Schriftgröße, darf über den Balkenrand hinausragen, steht zentriert statt linksbündig und bekommt einen animierten Gold-Glitzer-Effekt (inkl. Unterstützung für mehrzeilige, lange Namen mit korrekter Zentrierung zur Balkenmitte).
+- Mehrere Feinschliff-Korrekturen dazu: Schatteneffekt des Namens simuliert Lichteinfall aus Richtung 13 Uhr, bei Platz 1 per `filter: drop-shadow()` statt `text-shadow` umgesetzt (sonst rendert der Schatten bei der Gold-Verlaufs-Textmaske fälschlich davor statt dahinter); Gold-Animation verlangsamt; Balkenfarbe im unenthüllten Zustand aufgehellt für besseren Kontrast zum neuen Hintergrundbild.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

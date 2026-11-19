@@ -16,8 +16,7 @@
     row.className = 'beamer-balken-row' + platzKlasse;
     row.innerHTML =
       '<div class="beamer-balken-platz">' + item.platz + '.</div>' +
-      '<div class="beamer-balken-name"></div>' +
-      '<div class="beamer-balken-track"><div class="beamer-balken-fill"></div></div>' +
+      '<div class="beamer-balken-track"><div class="beamer-balken-fill"></div><div class="beamer-balken-name"></div></div>' +
       '<div class="beamer-balken-summe"></div>';
     return row;
   }
@@ -31,6 +30,7 @@
     fill.classList.toggle('enthuellt', item.enthuellt);
     nameEl.textContent = item.enthuellt ? item.name : '';
     summeEl.textContent = item.summe + ' Pkt.';
+    row.classList.toggle('ist-platz1-enthuellt', item.platz === 1 && item.enthuellt);
   }
 
   function laden() {
