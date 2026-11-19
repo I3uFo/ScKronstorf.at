@@ -82,6 +82,9 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Die Seite ist live unter songcontest.sckronstorf.at.
 - Sponsoren-Kachel-Raster war ab 992px Breite (Desktop/Vollbild) fest auf 900px Maximalbreite gedeckelt, wodurch die Kacheln bei 8 Spalten auf großen Monitoren unnötig klein wirkten; Deckelung für diesen Breitenbereich entfernt, Raster nutzt jetzt die volle Containerbreite. Tablet-Bereich (768–991px) und Mobile-Ansicht (3 Spalten) bewusst unverändert gelassen.
 
+**19.11.2026 (Teil 4) – Sponsoren-Kacheln wirklich variabel skaliert**
+- Feste Spaltenzahl (6 bzw. 8) ab Tablet-/Desktop-Breite durch ein echt variables Raster ersetzt (`auto-fit`/`minmax`): die Kachelgröße wächst jetzt stufenlos mit der tatsächlich verfügbaren Breite statt in eine feste Spaltenzahl gepresst zu werden, dadurch auf großen Monitoren deutlich größere Kacheln. Mobile-Ansicht (3 feste Spalten) weiterhin unverändert.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

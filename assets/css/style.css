@@ -568,14 +568,14 @@ a {
 
 @media (min-width: 768px) {
   .sponsor-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 16px;
   }
 }
 
 @media (min-width: 992px) {
   .sponsor-grid {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     width: 100%;
   }
 }
