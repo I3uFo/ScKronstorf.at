@@ -85,6 +85,11 @@ gewünscht, kann das auf Wunsch erweitert werden.
 **19.11.2026 (Teil 4) – Sponsoren-Kacheln wirklich variabel skaliert**
 - Feste Spaltenzahl (6 bzw. 8) ab Tablet-/Desktop-Breite durch ein echt variables Raster ersetzt (`auto-fit`/`minmax`): die Kachelgröße wächst jetzt stufenlos mit der tatsächlich verfügbaren Breite statt in eine feste Spaltenzahl gepresst zu werden, dadurch auf großen Monitoren deutlich größere Kacheln. Mobile-Ansicht (3 feste Spalten) weiterhin unverändert.
 
+**19.11.2026 (Teil 5) – Sponsoren-Raster nutzt wirklich die volle Breite**
+- Ursache gefunden, warum das Kachel-Raster auf der Danke-/Sponsoren-Seite trotz `width: 100%` nicht die volle verfügbare Breite genutzt hat: Der umgebende Flex-Wrapper (`.danke-screen`) hat sein Kind-Element bisher nur auf dessen Inhaltsbreite zusammengezogen, statt es zu strecken – behoben, sodass das Raster jetzt bis zu einer Obergrenze von 1900px wirklich die volle Breite ausnutzt und dabei bei typischen Desktop-/Vollbild-Breiten bei 6–8 Kacheln pro Reihe bleibt.
+- Zusätzlich ca. 1cm Innenabstand links und rechts ergänzt, damit das Raster nicht bis an den Bildschirmrand reicht. Mobile und Tablet-Ansicht unverändert.
+- `getText()`-zu-`seitenText()`-Umbenennung erneut ausgeführt: keine Treffer mehr gefunden, Umbenennung war bereits vollständig.
+
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

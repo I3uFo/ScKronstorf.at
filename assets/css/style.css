@@ -558,12 +558,17 @@ a {
   padding: 2rem 0;
 }
 
+.danke-screen > div {
+  width: 100%;
+}
+
 .sponsor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   width: min(100%, 900px);
   margin: 2rem auto 0;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -575,8 +580,12 @@ a {
 
 @media (min-width: 992px) {
   .sponsor-grid {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
     width: 100%;
+    max-width: 1900px;
+    padding-left: 1cm;
+    padding-right: 1cm;
   }
 }
 
