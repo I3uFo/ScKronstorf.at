@@ -110,6 +110,11 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - **Wichtig:** Das ist nur eine Sofortmaßnahme (Verschleierung durch einen unauffindbaren Namen), kein vollwertiger Schutz wie eine echte Server-Sperrregel – wer den neuen Dateinamen kennt oder errät, kann die Datei weiterhin herunterladen. Der Hoster sollte weiterhin um eine echte Nginx-Sperrregel für `/db/`, `/config/`, `/includes/` und `*.sqlite`-Dateien gebeten werden, sobald das möglich ist.
 - Auf dem Live-Server muss die bestehende `db/kronstorf.sqlite` manuell auf `db/.kronstorf_5c5c201b93.sqlite` umbenannt und die aktualisierten Dateien (`config/config.php`, `db/init.php`) hochgeladen werden – sonst findet die Anwendung ihre Datenbank nicht mehr.
 - Empfehlung an den Verein: Admin-Passwort vorsorglich ändern, da nicht bekannt ist, ob die Datei vor dieser Korrektur bereits von jemand anderem heruntergeladen wurde.
+- **Update:** Umbenennung und Upload auf dem Live-Server durchgeführt; verifiziert, dass die alte Datenbank-URL jetzt 404 liefert und die Seite (z. B. die Voting-Seite) weiterhin normal funktioniert.
+
+**19.11.2026 (Teil 9) – QR-Code für die Voting-Seite erstellt**
+- QR-Code für `https://songcontest.sckronstorf.at/voting.php` erzeugt (lokal per Python-Bibliothek `qrcode`, hohe Fehlerkorrekturstufe H für zuverlässiges Scannen auch bei kleinem Druck/Plakaten), als PNG abgelegt unter `voting-qr-code.png` im Projektordner.
+- Bewusst nicht Teil des Repositories oder der Website – reines Werbemittel zum Ausdrucken/Teilen, von keiner Seite eingebunden.
 
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
