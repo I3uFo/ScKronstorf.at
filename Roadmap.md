@@ -121,6 +121,7 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - Commit `3980619`, nach GitHub gepusht.
 - **Wichtig:** Die Änderung betrifft nur `assets/css/style.css` im Repository. Da dieses Projekt keine automatische Deployment-Pipeline hat (Upload erfolgt bisher immer manuell über das aaPanel-Kundenportal/Dateimanager, siehe Teil 7/8), muss die aktualisierte `style.css` noch von Hand auf den Live-Server hochgeladen werden, bevor der Effekt auf `https://songcontest.sckronstorf.at/` sichtbar wird. Beim Test über Firefox auf der Live-Seite war die Zentrierung erwartungsgemäß noch nicht zu sehen, da der Upload zu diesem Zeitpunkt noch aussteht.
 - **Update:** Auf Wunsch nochmal um 5 Prozentpunkte vergrößert, `transform: scale(1.1)` statt `1.05` (jetzt 110 % der ursprünglichen Größe).
+- **Update:** Nochmal auf `scale(1.2)` (120 %) vergrößert. Zusätzlich die Punktzahl-Spalte (`.beamer-balken-summe`) von `7rem` auf `9rem` verbreitert und `white-space: nowrap` ergänzt, damit fünfstellige Punktzahlen mit „Pkt."-Endung (z. B. „99999 Pkt.") nicht mehr umbrechen. Mit Vorschau-Screenshot verifiziert.
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 

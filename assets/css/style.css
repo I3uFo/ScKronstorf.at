@@ -642,7 +642,7 @@ body.beamer-body {
 }
 
 body.beamer-body > .container {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .beamer-balken-liste {
@@ -653,7 +653,7 @@ body.beamer-body > .container {
 
 .beamer-balken-row {
   display: grid;
-  grid-template-columns: 3.75rem 1fr 7rem;
+  grid-template-columns: 3.75rem 1fr 9rem;
   align-items: center;
   gap: 12px;
 }
@@ -728,6 +728,7 @@ body.beamer-body > .container {
   text-align: right;
   font-size: 2rem;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .beamer-balken-row--platz1 .beamer-balken-name {
