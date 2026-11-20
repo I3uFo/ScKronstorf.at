@@ -120,6 +120,7 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - `body.beamer-body` ist jetzt ein Flex-Container (horizontal und vertikal zentriert), der Inhalt (`.container`) wird zusätzlich per `transform: scale(1.05)` auf 105 % der bisherigen Größe vergrößert. Mit lokal gerenderten Vorschau-Screenshots (1920×1080, 3 sowie 8 Ergebniszeilen) verifiziert: Der Inhaltsblock sitzt rechnerisch zentriert (Abstand oben/unten jeweils gleich groß).
 - Commit `3980619`, nach GitHub gepusht.
 - **Wichtig:** Die Änderung betrifft nur `assets/css/style.css` im Repository. Da dieses Projekt keine automatische Deployment-Pipeline hat (Upload erfolgt bisher immer manuell über das aaPanel-Kundenportal/Dateimanager, siehe Teil 7/8), muss die aktualisierte `style.css` noch von Hand auf den Live-Server hochgeladen werden, bevor der Effekt auf `https://songcontest.sckronstorf.at/` sichtbar wird. Beim Test über Firefox auf der Live-Seite war die Zentrierung erwartungsgemäß noch nicht zu sehen, da der Upload zu diesem Zeitpunkt noch aussteht.
+- **Update:** Auf Wunsch nochmal um 5 Prozentpunkte vergrößert, `transform: scale(1.1)` statt `1.05` (jetzt 110 % der ursprünglichen Größe).
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 
