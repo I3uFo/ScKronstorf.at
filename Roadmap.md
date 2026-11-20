@@ -116,6 +116,10 @@ gewünscht, kann das auf Wunsch erweitert werden.
 - QR-Code für `https://songcontest.sckronstorf.at/voting.php` erzeugt (lokal per Python-Bibliothek `qrcode`, hohe Fehlerkorrekturstufe H für zuverlässiges Scannen auch bei kleinem Druck/Plakaten), als PNG abgelegt unter `voting-qr-code.png` im Projektordner.
 - Bewusst nicht Teil des Repositories oder der Website – reines Werbemittel zum Ausdrucken/Teilen, von keiner Seite eingebunden.
 
+**20.11.2026 – Beamer-Ansicht zentriert und vergrößert**
+- `body.beamer-body` ist jetzt ein Flex-Container (horizontal und vertikal zentriert), der Inhalt (`.container`) wird zusätzlich per `transform: scale(1.05)` auf 105 % der bisherigen Größe vergrößert. Mit lokal gerenderten Vorschau-Screenshots (1920×1080, 3 sowie 8 Ergebniszeilen) verifiziert: Der Inhaltsblock sitzt rechnerisch zentriert (Abstand oben/unten jeweils gleich groß).
+- Commit `3980619`, nach GitHub gepusht.
+- **Wichtig:** Die Änderung betrifft nur `assets/css/style.css` im Repository. Da dieses Projekt keine automatische Deployment-Pipeline hat (Upload erfolgt bisher immer manuell über das aaPanel-Kundenportal/Dateimanager, siehe Teil 7/8), muss die aktualisierte `style.css` noch von Hand auf den Live-Server hochgeladen werden, bevor der Effekt auf `https://songcontest.sckronstorf.at/` sichtbar wird. Beim Test über Firefox auf der Live-Seite war die Zentrierung erwartungsgemäß noch nicht zu sehen, da der Upload zu diesem Zeitpunkt noch aussteht.
 
 Projekt-Roadmap für die Vereinswebseite mit Eurovision-Style Voting, versteckter Adminverwaltung und Beamer-Live-Auszählung.
 
