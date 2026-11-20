@@ -636,6 +636,13 @@ body.beamer-body {
   color: #f2efec;
   font-family: "Roboto Slab", serif;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.beamer-body > .container {
+  transform: scale(1.05);
 }
 
 .beamer-balken-liste {
